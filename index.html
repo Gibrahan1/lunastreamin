@@ -1,211 +1,91 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>LunaStreaming</title>
   <style>
     body {
-      background-color: #0d0d0d;
-      color: #ffffff;
       font-family: Arial, sans-serif;
+      text-align: center;
+      background: #111;
+      color: #fff;
       margin: 0;
-      padding: 0;
+      padding: 2rem;
     }
     h1 {
-      text-align: center;
-      padding: 20px;
-      font-size: 2.5em;
+      color: #e50914;
+      font-size: 2.5rem;
     }
-    .container {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 20px;
-      padding: 20px;
+    p {
+      font-size: 1.2rem;
     }
-    .card {
-      background-color: #1a1a1a;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 0 10px #000;
-      text-align: center;
+    .grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 3rem;
     }
-    .card h2 {
-      margin: 0;
-      font-size: 1.5em;
+    .plataforma {
+      background: #222;
+      padding: 1rem;
+      border-radius: 10px;
+      width: 150px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+      transition: transform 0.3s;
     }
-    .card p {
-      margin: 8px 0;
+    .plataforma:hover {
+      transform: scale(1.05);
     }
-    .card a {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 10px 15px;
-      background-color: #25D366;
-      color: white;
-      border-radius: 8px;
-      text-decoration: none;
+    .plataforma img {
+      max-width: 100%;
+      height: auto;
     }
-    .whatsapp-btn {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #25D366;
-      color: white;
-      padding: 15px;
-      border-radius: 50%;
-      font-size: 24px;
-      text-align: center;
-      text-decoration: none;
+    .plataforma p {
+      margin-top: 0.5rem;
+      font-weight: bold;
+      color: #fff;
     }
   </style>
 </head>
 <body>
-  <h1>LunaStreaming</h1>
-  <div class="container">
-    
-    <div class="card">
-      <h2>Netflix</h2>
-      <p>$85</p>
-      <p>(completa $230)</p>
-      <a href="https://wa.me/526674103268?text=Hola,%20quiero%20ordenar%20Netflix%20de%20LunaStreaming" target="_blank">Ordenar por WhatsApp</a>
+  <h1>🎉 ¡Bienvenido a LunaStreaming! 🎉</h1>
+  <p>Disfruta tus plataformas favoritas desde un solo lugar</p>
+
+  <div class="grid">
+    <div class="plataforma">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix" />
+      <p>Netflix</p>
     </div>
-    
-    <div class="card">
-      <h2>Disney</h2>
-      <p>$80</p>
-      <p>(completa $249)</p>
-      <a href="https://wa.me/526674103268?text=Hola,%20quiero%20ordenar%20Disney%20de%20LunaStreaming" target="_blank">Ordenar por WhatsApp</a>
+    <div class="plataforma">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Disney%2B_logo.svg" alt="Disney+" />
+      <p>Disney+</p>
     </div>
-    
-    <div class="card">
-      <h2>Prime</h2>
-      <p>$55</p>
-      <p>(completa $90)</p>
-      <a href="https://wa.me/526674103268?text=Hola,%20quiero%20ordenar%20Prime%20de%20LunaStreaming" target="_blank">Ordenar por WhatsApp</a>
+    <div class="plataforma">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/1/17/HBO_Max_Logo.svg" alt="HBO Max" />
+      <p>HBO Max</p>
     </div>
-    
-    <div class="card">
-      <h2>ViX</h2>
-      <p>$45</p>
-      <p>(completa $70)</p>
-      <a href="https://wa.me/526674103268?text=Hola,%20quiero%20ordenar%20ViX%20de%20LunaStreaming" target="_blank">Ordenar por WhatsApp</a>
+    <div class="plataforma">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Prime_Video.png" alt="Amazon Prime" />
+      <p>Prime Video</p>
     </div>
-    
-    <div class="card">
-      <h2>max</h2>
-      <p>$50</p>
-      <p>(completa $85)</p>
-      <a href="https://wa.me/526674103268?text=Hola,%20quiero%20ordenar%20max%20de%20LunaStreaming" target="_blank">Ordenar por WhatsApp</a>
+    <div class="plataforma">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" alt="Spotify" />
+      <p>Spotify</p>
     </div>
-    
-    <div class="card">
-      <h2>Crunchyroll</h2>
-      <p>$45</p>
-      <p>(completa $85)</p>
-      <a href="https://wa.me/526674103268?text=Hola,%20quiero%20ordenar%20Crunchyroll%20de%20LunaStreaming" target="_blank">Ordenar por WhatsApp</a>
+    <div class="plataforma">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/2/20/Crunchyroll_Logo.svg" alt="Crunchyroll" />
+      <p>Crunchyroll</p>
     </div>
-    
-    <div class="card">
-      <h2>Paramount</h2>
-      <p>$50</p>
-      <p>(completa $85)</p>
-      <a href="https://wa.me/526674103268?text=Hola,%20quiero%20ordenar%20Paramount%20de%20LunaStreaming" target="_blank">Ordenar por WhatsApp</a>
+    <div class="plataforma">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Star%2B_logo.svg" alt="Star+" />
+      <p>Star+</p>
     </div>
-    
-    <div class="card">
-      <h2>Canva mes</h2>
-      <p>$50</p>
-      <p>(anual $275)</p>
-      <a href="https://wa.me/526674103268?text=Hola,%20quiero%20ordenar%20Canva%20mes%20de%20LunaStreaming" target="_blank">Ordenar por WhatsApp</a>
+    <div class="plataforma">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg" alt="YouTube Premium" />
+      <p>YouTube Premium</p>
     </div>
-    
-    <div class="card">
-      <h2>Spotify</h2>
-      <p>$60</p>
-      <p>(3 meses $140)</p>
-      <a href="https://wa.me/526674103268?text=Hola,%20quiero%20ordenar%20Spotify%20de%20LunaStreaming" target="_blank">Ordenar por WhatsApp</a>
-    </div>
-    
-    <div class="card">
-      <h2>Pornhub completa</h2>
-      <p>$72.05</p>
-      
-      <a href="https://wa.me/526674103268?text=Hola,%20quiero%20ordenar%20Pornhub%20completa%20de%20LunaStreaming" target="_blank">Ordenar por WhatsApp</a>
-    </div>
-    
-    <div class="card">
-      <h2>ElProfeNet</h2>
-      <p>$74</p>
-      
-      <a href="https://wa.me/526674103268?text=Hola,%20quiero%20ordenar%20ElProfeNet%20de%20LunaStreaming" target="_blank">Ordenar por WhatsApp</a>
-    </div>
-    
-    <div class="card">
-      <h2>JellyFin</h2>
-      <p>$65</p>
-      <p>(completa $89)</p>
-      <a href="https://wa.me/526674103268?text=Hola,%20quiero%20ordenar%20JellyFin%20de%20LunaStreaming" target="_blank">Ordenar por WhatsApp</a>
-    </div>
-    
-    <div class="card">
-      <h2>MeteGol</h2>
-      <p>$75</p>
-      
-      <a href="https://wa.me/526674103268?text=Hola,%20quiero%20ordenar%20MeteGol%20de%20LunaStreaming" target="_blank">Ordenar por WhatsApp</a>
-    </div>
-    
-    <div class="card">
-      <h2>Plex</h2>
-      <p>$63</p>
-      <p>(completa $85)</p>
-      <a href="https://wa.me/526674103268?text=Hola,%20quiero%20ordenar%20Plex%20de%20LunaStreaming" target="_blank">Ordenar por WhatsApp</a>
-    </div>
-    
-    <div class="card">
-      <h2>YouTube</h2>
-      <p>$80</p>
-      <p>(3 meses $130)</p>
-      <a href="https://wa.me/526674103268?text=Hola,%20quiero%20ordenar%20YouTube%20de%20LunaStreaming" target="_blank">Ordenar por WhatsApp</a>
-    </div>
-    
-    <div class="card">
-      <h2>Ofice 365 1 dispositivo Anual</h2>
-      <p>$290</p>
-      
-      <a href="https://wa.me/526674103268?text=Hola,%20quiero%20ordenar%20Ofice%20365%201%20dispositivo%20Anual%20de%20LunaStreaming" target="_blank">Ordenar por WhatsApp</a>
-    </div>
-    
-    <div class="card">
-      <h2>AppleTv mes</h2>
-      <p>$80</p>
-      
-      <a href="https://wa.me/526674103268?text=Hola,%20quiero%20ordenar%20AppleTv%20mes%20de%20LunaStreaming" target="_blank">Ordenar por WhatsApp</a>
-    </div>
-    
-    <div class="card">
-      <h2>ChatGpt mes</h2>
-      <p>$145</p>
-      
-      <a href="https://wa.me/526674103268?text=Hola,%20quiero%20ordenar%20ChatGpt%20mes%20de%20LunaStreaming" target="_blank">Ordenar por WhatsApp</a>
-    </div>
-    
-    <div class="card">
-      <h2>Chaton mes</h2>
-      <p>$85</p>
-      
-      <a href="https://wa.me/526674103268?text=Hola,%20quiero%20ordenar%20Chaton%20mes%20de%20LunaStreaming" target="_blank">Ordenar por WhatsApp</a>
-    </div>
-    
-    <div class="card">
-      <h2>Duolingo mes</h2>
-      <p>$65</p>
-      
-      <a href="https://wa.me/526674103268?text=Hola,%20quiero%20ordenar%20Duolingo%20mes%20de%20LunaStreaming" target="_blank">Ordenar por WhatsApp</a>
-    </div>
-    
   </div>
-  <a href="https://wa.me/526674103268" class="whatsapp-btn" title="Chatear en WhatsApp">💬</a>
 </body>
 </html>
