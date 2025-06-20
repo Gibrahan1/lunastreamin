@@ -3,254 +3,357 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>LunaStreaming</title>
+  <title>LunaStreaming - Venta de Cuentas Streaming</title>
   <style>
+    /* Reset básico */
+    * {
+      box-sizing: border-box;
+      margin: 0; padding: 0;
+    }
+
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #0d1117;
+      color: #e1e4e8;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+      padding-bottom: 80px; /* espacio para botón WhatsApp */
+    }
+
+    /* Fondo animado */
+    .fondo-animado {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: -1;
+      overflow: hidden;
+      background: #0d1117;
+    }
+
+    .fondo-animado .pin {
+      position: absolute;
+      width: 80px;
+      opacity: 0.06;
+      animation: flotar 25s ease-in-out infinite;
+      filter: drop-shadow(0 0 3px rgba(255,255,255,0.2));
+    }
+
+    .fondo-animado .marca {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 5rem;
+      color: rgba(255, 255, 255, 0.04);
+      font-weight: 900;
+      letter-spacing: 6px;
+      white-space: nowrap;
+      animation: resplandor 10s ease-in-out infinite;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    @keyframes flotar {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(3deg); }
+    }
+
+    @keyframes resplandor {
+      0%, 100% { opacity: 0.04; }
+      50% { opacity: 0.08; }
+    }
+
+    /* Contenedor principal */
+    .container {
+      max-width: 960px;
+      margin: 2rem auto 4rem auto;
+      padding: 0 1rem;
+    }
+
+    header {
       text-align: center;
-      background: #111;
-      color: #fff;
-      margin: 0;
-      padding: 2rem;
-    }
-    h1 {
-      color: #e50914;
-      font-size: 2.5rem;
-    }
-    p {
-      font-size: 1.2rem;
       margin-bottom: 2rem;
     }
+
+    header h1 {
+      font-size: 3rem;
+      color: #ff1c1c;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 0 8px #ff1c1c;
+    }
+
+    header p {
+      font-size: 1.25rem;
+      color: #ccc;
+    }
+
+    /* Grid plataformas */
     .grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
     }
+
     .plataforma {
-      background: #222;
-      padding: 1rem;
-      border-radius: 10px;
-      width: 200px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.4);
-      transition: transform 0.3s;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 0 12px rgba(255, 28, 28, 0.3);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
     }
+
     .plataforma:hover {
       transform: scale(1.05);
+      box-shadow: 0 0 20px #ff1c1c;
     }
+
     .plataforma img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-      margin: 0 auto 0.5rem;
-    }
-    .placeholder-logo {
-      background: #555;
-      color: #fff;
-      font-weight: bold;
-      height: 80px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 0.5rem;
-      border-radius: 8px;
-      font-size: 1.1rem;
+      max-width: 100px;
+      margin-bottom: 1rem;
       user-select: none;
+      pointer-events: none;
     }
-    .plataforma p {
-      margin: 0.3rem 0;
-      font-weight: bold;
+
+    .plataforma .nombre {
+      font-weight: 700;
+      font-size: 1.3rem;
+      margin-bottom: 0.3rem;
+      color: #ff1c1c;
+      text-align: center;
     }
-    .precio {
-      color: #ccc;
-      font-size: 0.95rem;
-      margin-bottom: 0.5rem;
+
+    .plataforma .precio {
+      font-size: 1.1rem;
+      color: #ddd;
+      margin-bottom: 1rem;
+      text-align: center;
     }
-    .boton-wsp {
-      background-color: #25D366;
-      color: white;
-      padding: 8px 10px;
-      border: none;
-      border-radius: 5px;
-      font-size: 0.9rem;
+
+    /* Botón WhatsApp fijo */
+    .btn-whatsapp {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background-color: #25d366;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+      display: flex;
+      justify-content: center;
+      align-items: center;
       cursor: pointer;
-      text-decoration: none;
-      display: inline-block;
+      z-index: 1000;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-whatsapp:hover {
+      background-color: #1ebe57;
+    }
+
+    .btn-whatsapp img {
+      width: 32px;
+      height: 32px;
+    }
+
+    /* Responsive */
+    @media(max-width: 480px) {
+      header h1 {
+        font-size: 2.2rem;
+      }
+      .plataforma {
+        padding: 1rem;
+      }
+      .plataforma img {
+        max-width: 70px;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>Bienvenido a LunaStreaming</h1>
-  <p>¡La onda del streaming!</p>
 
-  <div class="grid">
-    <!-- Netflix -->
-    <div class="plataforma">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix" />
-      <p>Netflix</p>
-      <div class="precio">$85 (completa $230)</div>
-      <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20LunaStreaming%20y%20me%20interesa%20Netflix" target="_blank">Pedir por WhatsApp</a>
-    </div>
-
-    <!-- Disney+ -->
-    <div class="plataforma">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Disney%2B_logo.svg" alt="Disney+" />
-      <p>Disney+</p>
-      <div class="precio">$80 (completa $249)</div>
-      <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20LunaStreaming%20y%20me%20interesa%20Disney%2B" target="_blank">Pedir por WhatsApp</a>
-    </div>
-
-    <!-- Prime Video -->
-    <div class="plataforma">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Prime_Video.png" alt="Prime Video" />
-      <p>Prime Video</p>
-      <div class="precio">$55 (completa $90)</div>
-      <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20LunaStreaming%20y%20me%20interesa%20Prime%20Video" target="_blank">Pedir por WhatsApp</a>
-    </div>
-
-    <!-- Vix -->
-    <div class="plataforma">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Vix_logo.svg" alt="Vix" />
-      <p>Vix</p>
-      <div class="precio">$45 (completa $70)</div>
-      <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20LunaStreaming%20y%20me%20interesa%20Vix" target="_blank">Pedir por WhatsApp</a>
-    </div>
-
-    <!-- Max -->
-    <div class="plataforma">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/1/17/HBO_Max_Logo.svg" alt="Max" />
-      <p>Max</p>
-      <div class="precio">$50 (completa $85)</div>
-      <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20LunaStreaming%20y%20me%20interesa%20Max" target="_blank">Pedir por WhatsApp</a>
-    </div>
-
-    <!-- Crunchyroll -->
-    <div class="plataforma">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/2/20/Crunchyroll_Logo.svg" alt="Crunchyroll" />
-      <p>Crunchyroll</p>
-      <div class="precio">$45 (completa $85)</div>
-      <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20LunaStreaming%20y%20me%20interesa%20Crunchyroll" target="_blank">Pedir por WhatsApp</a>
-    </div>
-
-    <!-- Paramount+ -->
-    <div class="plataforma">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Paramount%2B_Logo.svg" alt="Paramount+" />
-      <p>Paramount+</p>
-      <div class="precio">$50 (completa $85)</div>
-      <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20LunaStreaming%20y%20me%20interesa%20Paramount" target="_blank">Pedir por WhatsApp</a>
-    </div>
-
-    <!-- Canva -->
-    <div class="plataforma">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/3/30/Canva_Logo.svg" alt="Canva" />
-      <p>Canva</p>
-      <div class="precio">$50 mensual / $275 anual</div>
-      <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20LunaStreaming%20y%20me%20interesa%20Canva" target="_blank">Pedir por WhatsApp</a>
-    </div>
-
-    <!-- Spotify -->
-    <div class="plataforma">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" alt="Spotify" />
-      <p>Spotify</p>
-      <div class="precio">$60 / 3 meses $140</div>
-      <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20LunaStreaming%20y%20me%20interesa%20Spotify" target="_blank">Pedir por WhatsApp</a>
-    </div>
-
-    <!-- Pornhub -->
-    <div class="plataforma">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/9/9c/Pornhub_logo.svg" alt="Pornhub" />
-      <p>Pornhub completa</p>
-      <div class="precio">$72.05</div>
-      <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20LunaStreaming%20y%20me%20interesa%20Pornhub" target="_blank">Pedir por WhatsApp</a>
-    </div>
-
-    <!-- ElProfeNet -->
-    <div class="plataforma">
-      <div class="placeholder-logo">ElProfeNet</div>
-      <p>ElProfeNet</p>
-      <div class="precio">$74</div>
-      <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20LunaStreaming%20y%20me%20interesa%20ElProfeNet" target="_blank">Pedir por WhatsApp</a>
-    </div>
-
-    <!-- JellyFin -->
-    <div class="plataforma">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/5/5d/Jellyfin_Logo_2020.svg" alt="JellyFin" />
-      <p>JellyFin</p>
-      <div class="precio">$65 (completa $89)</div>
-      <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20LunaStreaming%20y%20me%20interesa%20JellyFin" target="_blank">Pedir por WhatsApp</a>
-    </div>
-
-    <!-- MeteGol -->
-    <div class="plataforma">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/2/23/MeteoGroup_logo.svg" alt="MeteGol" />
-      <p>MeteGol</p>
-      <div class="precio">$75</div>
-      <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20LunaStreaming%20y%20me%20interesa%20MeteGol" target="_blank">Pedir por WhatsApp</a>
-    </div>
-
-    <!-- Plex -->
-    <div class="plataforma">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Plex_logo.svg" alt="Plex" />
-      <p>Plex</p>
-      <div class="precio">$63 (completa $85)</div>
-      <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20LunaStreaming%20y%20me%20interesa%20Plex" target="_blank">Pedir por WhatsApp</a>
-    </div>
-
-    <!-- YouTube Premium -->
-    <div class="plataforma">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg" alt="YouTube Premium" />
-      <p>YouTube Premium</p>
-      <div class="precio">$80 / 3 meses $130</div>
-      <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20LunaStreaming%20y%20me%20interesa%20YouTube%20Premium" target="_blank">Pedir por WhatsApp</a>
-    </div>
-
-    <!-- Office 365 -->
-    <div class="plataforma">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Microsoft_Office_2019_%28logo%29.svg" alt="Office 365" />
-      <p>Office 365</p>
-      <div class="precio">$290 anual (1 dispositivo)</div>
-      <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20LunaStreaming%20y%20me%20interesa%20Office%20365" target="_blank">Pedir por WhatsApp</a>
-    </div>
-
-    <!-- Apple TV -->
-    <div class="plataforma">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/Apple_TV_logo.svg" alt="Apple TV" />
-      <p>Apple TV mensual</p>
-      <div class="precio">$80</div>
-      <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20LunaStreaming%20y%20me%20interesa%20Apple%20TV" target="_blank">Pedir por WhatsApp</a>
-    </div>
-
-    <!-- ChatGPT -->
-    <div class="plataforma">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/OpenAI_Logo.svg" alt="ChatGPT" />
-      <p>ChatGPT mensual</p>
-      <div class="precio">$145</div>
-      <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20LunaStreaming%20y%20me%20interesa%20ChatGPT" target="_blank">Pedir por WhatsApp</a>
-    </div>
-
-    <!-- Chaton -->
-    <div class="plataforma">
-      <div class="placeholder-logo">Chaton</div>
-      <p>Chaton mensual</p>
-      <div class="precio">$85</div>
-      <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20LunaStreaming%20y%20me%20interesa%20Chaton" target="_blank">Pedir por WhatsApp</a>
-    </div>
-
-    <!-- Duolingo -->
-    <div class="plataforma">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Duolingo_logo.svg" alt="Duolingo" />
-      <p>Duolingo mensual</p>
-      <div class="precio">$65</div>
-      <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20LunaStreaming%20y%20me%20interesa%20Duolingo" target="_blank">Pedir por WhatsApp</a>
-    </div>
+  <div class="fondo-animado" aria-hidden="true">
+    <!-- Logos flotantes, ajusta las posiciones y cantidad -->
+    <img class="pin" src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" style="top: 10%; left: 20%;" alt="Netflix Logo" />
+    <img class="pin" src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Disney%2B_logo.svg" style="top: 25%; left: 70%;" alt="Disney+ Logo" />
+    <img class="pin" src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" style="top: 60%; left: 30%;" alt="Spotify Logo" />
+    <img class="pin" src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Microsoft_Office_2019_%28logo%29.svg" style="top: 50%; left: 80%;" alt="Office 365 Logo" />
+    <img class="pin" src="https://upload.wikimedia.org/wikipedia/commons/2/20/Crunchyroll_Logo.svg" style="top: 70%; left: 10%;" alt="Crunchyroll Logo" />
+    <img class="pin" src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Prime_Video_logo.svg" style="top: 35%; left: 40%;" alt="Prime Video Logo" />
+    <img class="pin" src="https://upload.wikimedia.org/wikipedia/commons/7/77/Paramount_Global_Logo.svg" style="top: 80%; left: 50%;" alt="Paramount Logo" />
+    <img class="pin" src="https://upload.wikimedia.org/wikipedia/commons/8/8f/Canva_Logo.svg" style="top: 15%; left: 50%;" alt="Canva Logo" />
+    <span class="marca">LunaStreaming</span>
   </div>
 
-  <!-- Botón flotante de WhatsApp -->
-  <a href="https://wa.me/5216674103268" 
-     style="position:fixed;bottom:20px;right:20px;background:#25D366;color:white;border-radius:50%;padding:15px;text-align:center;font-size:24px;box-shadow:0 0 10px rgba(0,0,0,0.3);z-index:1000;"
-     target="_blank"
-     aria-label="Habla con nosotros por WhatsApp">
-    💬
+  <div class="container">
+    <header>
+      <h1>LunaStreaming</h1>
+      <p>Bienvenido a tu mejor opción para comprar cuentas de streaming</p>
+    </header>
+
+    <section class="grid">
+      <!-- Ejemplo de plataforma -->
+      <article class="plataforma" onclick="contactWhatsApp('Netflix')">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix" />
+        <div class="nombre">Netflix</div>
+        <div class="precio">Desde $85 (Completa $230)</div>
+      </article>
+
+      <article class="plataforma" onclick="contactWhatsApp('Disney')">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Disney%2B_logo.svg" alt="Disney Plus" />
+        <div class="nombre">Disney+</div>
+        <div class="precio">Desde $80 (Completa $249)</div>
+      </article>
+
+      <article class="plataforma" onclick="contactWhatsApp('Prime Video')">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Prime_Video_logo.svg" alt="Prime Video" />
+        <div class="nombre">Prime Video</div>
+        <div class="precio">Desde $55 (Completa $90)</div>
+      </article>
+
+      <article class="plataforma" onclick="contactWhatsApp('Vix')">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/9e/Vix_Logo.svg" alt="Vix" />
+        <div class="nombre">Vix</div>
+        <div class="precio">Desde $45 (Completa $70)</div>
+      </article>
+
+      <article class="plataforma" onclick="contactWhatsApp('Max')">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/HBO_Max_Logo.svg" alt="Max" />
+        <div class="nombre">Max</div>
+        <div class="precio">Desde $50 (Completa $85)</div>
+      </article>
+
+      <article class="plataforma" onclick="contactWhatsApp('Crunchyroll')">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/20/Crunchyroll_Logo.svg" alt="Crunchyroll" />
+        <div class="nombre">Crunchyroll</div>
+        <div class="precio">Desde $45 (Completa $85)</div>
+      </article>
+
+      <article class="plataforma" onclick="contactWhatsApp('Paramount')">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/77/Paramount_Global_Logo.svg" alt="Paramount" />
+        <div class="nombre">Paramount</div>
+        <div class="precio">Desde $50 (Completa $85)</div>
+      </article>
+
+      <article class="plataforma" onclick="contactWhatsApp('Canva')">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/8f/Canva_Logo.svg" alt="Canva" />
+        <div class="nombre">Canva Mes</div>
+        <div class="precio">Desde $50 (Anual $275)</div>
+      </article>
+
+      <article class="plataforma" onclick="contactWhatsApp('Spotify')">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" alt="Spotify" />
+        <div class="nombre">Spotify</div>
+        <div class="precio">Desde $60 (3 meses $140)</div>
+      </article>
+
+      <article class="plataforma" onclick="contactWhatsApp('Pornhub')">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7f/Pornhub_logo.svg" alt="Pornhub" />
+        <div class="nombre">Pornhub Completa</div>
+        <div class="precio">$72.05</div>
+      </article>
+
+      <article class="plataforma" onclick="contactWhatsApp('ElProfeNet')">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Logo_elprofenet.svg" alt="ElProfeNet" />
+        <div class="nombre">ElProfeNet</div>
+        <div class="precio">$74</div>
+      </article>
+
+      <article class="plataforma" onclick="contactWhatsApp('JellyFin')">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Jellyfin_Logo.svg" alt="JellyFin" />
+        <div class="nombre">JellyFin</div>
+        <div class="precio">Desde $65 (Completa $89)</div>
+      </article>
+
+      <article class="plataforma" onclick="contactWhatsApp('MeteGol')">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/MeteGol_Logo.svg" alt="MeteGol" />
+        <div class="nombre">MeteGol</div>
+        <div class="precio">$75</div>
+      </article>
+
+      <article class="plataforma" onclick="contactWhatsApp('Plex')">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Plex_Logo.svg" alt="Plex" />
+        <div class="nombre">Plex</div>
+        <div class="precio">Desde $63 (Completa $85)</div>
+      </article>
+
+      <article class="plataforma" onclick="contactWhatsApp('Youtube Premium')">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="Youtube" />
+        <div class="nombre">Youtube Premium</div>
+        <div class="precio">Desde $80 (3 meses $130)</div>
+      </article>
+
+      <article class="plataforma" onclick="contactWhatsApp('Office 365')">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Microsoft_Office_2019_%28logo%29.svg" alt="Office 365" />
+        <div class="nombre">Office 365 1 dispositivo Anual</div>
+        <div class="precio">$290</div>
+      </article>
+
+      <article class="plataforma" onclick="contactWhatsApp('Apple TV')">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple TV" />
+        <div class="nombre">Apple TV Mes</div>
+        <div class="precio">$80</div>
+      </article>
+
+      <article class="plataforma" onclick="contactWhatsApp('ChatGPT')">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/OpenAI_Logo.svg" alt="ChatGPT" />
+        <div class="nombre">ChatGPT Mes</div>
+        <div class="precio">$145</div>
+      </article>
+
+      <article class="plataforma" onclick="contactWhatsApp('Chaton')">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Chaton_logo.svg" alt="Chaton" />
+        <div class="nombre">Chaton Mes</div>
+        <div class="precio">$85</div>
+      </article>
+
+      <article class="plataforma" onclick="contactWhatsApp('Duolingo')">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c9/Duolingo_logo.svg" alt="Duolingo" />
+        <div class="nombre">Duolingo Mes</div>
+        <div class="precio">$65</div>
+      </article>
+    </section>
+  </div>
+
+  <!-- Botón WhatsApp flotante -->
+  <a 
+    href="https://wa.me/526674103268?text=Hola,%20vengo%20de%20LunaStreaming%20y%20me%20interesa%20una%20cuenta." 
+    target="_blank" 
+    rel="noopener" 
+    class="btn-whatsapp" 
+    aria-label="Contactar por WhatsApp"
+  >
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
   </a>
+
+  <script>
+    function contactWhatsApp(plataforma) {
+      const base = "https://wa.me/526674103268?text=";
+      const msg = encodeURIComponent(`Hola, vengo de LunaStreaming y me interesa la plataforma ${plataforma}`);
+      window.open(base + msg, '_blank');
+    }
+  </script>
 </body>
 </html>
+<script>
+  function contactWhatsApp(plataforma) {
+    const nombre = prompt("Por favor, ingresa tu nombre:");
+    if (!nombre) {
+      alert("Debes ingresar tu nombre para continuar.");
+      return;
+    }
+    const telefono = prompt("Por favor, ingresa tu número de teléfono:");
+    if (!telefono) {
+      alert("Debes ingresar tu número de teléfono para continuar.");
+      return;
+    }
+    const base = "https://wa.me/526674103268?text=";
+    const msg = encodeURIComponent(`Hola, vengo de LunaStreaming y me interesa la plataforma ${plataforma}. Mi nombre es ${nombre} y mi teléfono es ${telefono}.`);
+    window.open(base + msg, '_blank');
+  }
+</script>
