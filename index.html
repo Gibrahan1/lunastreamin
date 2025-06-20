@@ -340,18 +340,29 @@
   </script>
 </body>
 </html>
+<!-- Formulario para nombre y teléfono -->
+<div class="form-contacto" style="max-width: 400px; margin: 1rem auto; text-align:center; color:#eee;">
+  <input id="nombreCliente" type="text" placeholder="Tu nombre" style="width: 48%; padding: 8px; margin-right: 4%;" />
+  <input id="telefonoCliente" type="tel" placeholder="Tu teléfono" style="width: 48%; padding: 8px;" />
+</div>
+
+<section class="grid">
+  <article class="plataforma" onclick="contactWhatsApp('Netflix')">
+    <!-- contenido plataforma -->
+  </article>
+  <!-- más plataformas -->
+</section>
+
 <script>
   function contactWhatsApp(plataforma) {
-    const nombre = prompt("Por favor, ingresa tu nombre:");
-    if (!nombre) {
-      alert("Debes ingresar tu nombre para continuar.");
+    const nombre = document.getElementById('nombreCliente').value.trim();
+    const telefono = document.getElementById('telefonoCliente').value.trim();
+
+    if (!nombre || !telefono) {
+      alert('Por favor, ingresa tu nombre y teléfono antes de continuar.');
       return;
     }
-    const telefono = prompt("Por favor, ingresa tu número de teléfono:");
-    if (!telefono) {
-      alert("Debes ingresar tu número de teléfono para continuar.");
-      return;
-    }
+
     const base = "https://wa.me/526674103268?text=";
     const msg = encodeURIComponent(`Hola, vengo de LunaStreaming y me interesa la plataforma ${plataforma}. Mi nombre es ${nombre} y mi teléfono es ${telefono}.`);
     window.open(base + msg, '_blank');
