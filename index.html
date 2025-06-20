@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>LunaStreaming</title>
   <style>
     body {
@@ -19,13 +19,13 @@
     }
     p {
       font-size: 1.2rem;
+      margin-bottom: 2rem;
     }
     .grid {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 2rem;
-      margin-top: 3rem;
     }
     .plataforma {
       background: #222;
@@ -41,11 +41,25 @@
     .plataforma img {
       max-width: 100%;
       height: auto;
+      display: block;
+      margin: 0 auto 0.5rem;
+    }
+    .placeholder-logo {
+      background: #555;
+      color: #fff;
+      font-weight: bold;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0.5rem;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      user-select: none;
     }
     .plataforma p {
-      margin: 0.5rem 0 0.3rem;
+      margin: 0.3rem 0;
       font-weight: bold;
-      color: #fff;
     }
     .precio {
       color: #ccc;
@@ -67,7 +81,7 @@
 </head>
 <body>
   <h1>Bienvenido a LunaStreaming</h1>
-  <p>¡La onda del streaming!</p>
+  <p>Disfruta tus plataformas favoritas desde un solo lugar</p>
 
   <div class="grid">
     <!-- Netflix -->
@@ -75,30 +89,31 @@
       <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix" />
       <p>Netflix</p>
       <div class="precio">$85 (completa $230)</div>
-      <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola%2C%20me%20interesa%20Netflix" target="_blank">Pedir por WhatsApp</a>
+      <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20LunaStreaming%20y%20me%20interesa%20Netflix" target="_blank">Pedir por WhatsApp</a>
     </div>
 
-    <!-- Disney -->
+    <!-- Disney+ -->
     <div class="plataforma">
       <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Disney%2B_logo.svg" alt="Disney+" />
       <p>Disney+</p>
       <div class="precio">$80 (completa $249)</div>
-      <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola%2C%20me%20interesa%20Disney%2B" target="_blank">Pedir por WhatsApp</a>
+      <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20LunaStreaming%20y%20me%20interesa%20Disney%2B" target="_blank">Pedir por WhatsApp</a>
     </div>
 
     <!-- Prime Video -->
     <div class="plataforma">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Prime_Video.png" alt="Amazon Prime" />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Prime_Video.png" alt="Prime Video" />
       <p>Prime Video</p>
       <div class="precio">$55 (completa $90)</div>
-      <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola%2C%20me%20interesa%20Prime%20Video" target="_blank">Pedir por WhatsApp</a>
+      <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20LunaStreaming%20y%20me%20interesa%20Prime%20Video" target="_blank">Pedir por WhatsApp</a>
     </div>
 
     <!-- Vix -->
     <div class="plataforma">
+      <div class="placeholder-logo">Vix</div>
       <p>Vix</p>
       <div class="precio">$45 (completa $70)</div>
-      <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola%2C%20me%20interesa%20Vix" target="_blank">Pedir por WhatsApp</a>
+      <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20LunaStreaming%20y%20me%20interesa%20Vix" target="_blank">Pedir por WhatsApp</a>
     </div>
 
     <!-- Max -->
@@ -106,7 +121,7 @@
       <img src="https://upload.wikimedia.org/wikipedia/commons/1/17/HBO_Max_Logo.svg" alt="Max" />
       <p>Max</p>
       <div class="precio">$50 (completa $85)</div>
-      <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola%2C%20me%20interesa%20Max" target="_blank">Pedir por WhatsApp</a>
+      <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20LunaStreaming%20y%20me%20interesa%20Max" target="_blank">Pedir por WhatsApp</a>
     </div>
 
     <!-- Crunchyroll -->
@@ -114,21 +129,23 @@
       <img src="https://upload.wikimedia.org/wikipedia/commons/2/20/Crunchyroll_Logo.svg" alt="Crunchyroll" />
       <p>Crunchyroll</p>
       <div class="precio">$45 (completa $85)</div>
-      <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola%2C%20me%20interesa%20Crunchyroll" target="_blank">Pedir por WhatsApp</a>
+      <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20LunaStreaming%20y%20me%20interesa%20Crunchyroll" target="_blank">Pedir por WhatsApp</a>
     </div>
 
-    <!-- Paramount -->
+    <!-- Paramount+ -->
     <div class="plataforma">
+      <div class="placeholder-logo">Paramount+</div>
       <p>Paramount+</p>
       <div class="precio">$50 (completa $85)</div>
-      <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola%2C%20me%20interesa%20Paramount" target="_blank">Pedir por WhatsApp</a>
+      <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20LunaStreaming%20y%20me%20interesa%20Paramount" target="_blank">Pedir por WhatsApp</a>
     </div>
 
     <!-- Canva -->
     <div class="plataforma">
+      <div class="placeholder-logo">Canva</div>
       <p>Canva</p>
       <div class="precio">$50 mensual / $275 anual</div>
-      <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola%2C%20me%20interesa%20Canva" target="_blank">Pedir por WhatsApp</a>
+      <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20LunaStreaming%20y%20me%20interesa%20Canva" target="_blank">Pedir por WhatsApp</a>
     </div>
 
     <!-- Spotify -->
@@ -136,43 +153,95 @@
       <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" alt="Spotify" />
       <p>Spotify</p>
       <div class="precio">$60 / 3 meses $140</div>
-      <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola%2C%20me%20interesa%20Spotify" target="_blank">Pedir por WhatsApp</a>
+      <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20LunaStreaming%20y%20me%20interesa%20Spotify" target="_blank">Pedir por WhatsApp</a>
     </div>
 
-    <!-- Youtube -->
+    <!-- Pornhub -->
     <div class="plataforma">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg" alt="YouTube" />
+      <div class="placeholder-logo">Pornhub</div>
+      <p>Pornhub completa</p>
+      <div class="precio">$72.05</div>
+      <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20LunaStreaming%20y%20me%20interesa%20Pornhub" target="_blank">Pedir por WhatsApp</a>
+    </div>
+
+    <!-- ElProfeNet -->
+    <div class="plataforma">
+      <div class="placeholder-logo">ElProfeNet</div>
+      <p>ElProfeNet</p>
+      <div class="precio">$74</div>
+      <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20LunaStreaming%20y%20me%20interesa%20ElProfeNet" target="_blank">Pedir por WhatsApp</a>
+    </div>
+
+    <!-- JellyFin -->
+    <div class="plataforma">
+      <div class="placeholder-logo">JellyFin</div>
+      <p>JellyFin</p>
+      <div class="precio">$65 (completa $89)</div>
+      <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20LunaStreaming%20y%20me%20interesa%20JellyFin" target="_blank">Pedir por WhatsApp</a>
+    </div>
+
+    <!-- MeteGol -->
+    <div class="plataforma">
+      <div class="placeholder-logo">MeteGol</div>
+      <p>MeteGol</p>
+      <div class="precio">$75</div>
+      <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20LunaStreaming%20y%20me%20interesa%20MeteGol" target="_blank">Pedir por WhatsApp</a>
+    </div>
+
+    <!-- Plex -->
+    <div class="plataforma">
+      <div class="placeholder-logo">Plex</div>
+      <p>Plex</p>
+      <div class="precio">$63 (completa $85)</div>
+      <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20LunaStreaming%20y%20me%20interesa%20Plex" target="_blank">Pedir por WhatsApp</a>
+    </div>
+
+    <!-- YouTube Premium -->
+    <div class="plataforma">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg" alt="YouTube Premium" />
       <p>YouTube Premium</p>
       <div class="precio">$80 / 3 meses $130</div>
-      <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola%2C%20me%20interesa%20YouTube%20Premium" target="_blank">Pedir por WhatsApp</a>
+      <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20LunaStreaming%20y%20me%20interesa%20YouTube%20Premium" target="_blank">Pedir por WhatsApp</a>
     </div>
 
     <!-- Office 365 -->
     <div class="plataforma">
+      <div class="placeholder-logo">Office 365</div>
       <p>Office 365</p>
       <div class="precio">$290 anual (1 dispositivo)</div>
-      <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola%2C%20me%20interesa%20Office%20365" target="_blank">Pedir por WhatsApp</a>
+      <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20LunaStreaming%20y%20me%20interesa%20Office%20365" target="_blank">Pedir por WhatsApp</a>
+    </div>
+
+    <!-- Apple TV -->
+    <div class="plataforma">
+      <div class="placeholder-logo">Apple TV</div>
+      <p>Apple TV mensual</p>
+      <div class="precio">$80</div>
+      <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20LunaStreaming%20y%20me%20interesa%20Apple%20TV" target="_blank">Pedir por WhatsApp</a>
     </div>
 
     <!-- ChatGPT -->
     <div class="plataforma">
-      <p>ChatGPT</p>
-      <div class="precio">$145 mensual</div>
-      <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola%2C%20me%20interesa%20ChatGPT" target="_blank">Pedir por WhatsApp</a>
+      <div class="placeholder-logo">ChatGPT</div>
+      <p>ChatGPT mensual</p>
+      <div class="precio">$145</div>
+      <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20LunaStreaming%20y%20me%20interesa%20ChatGPT" target="_blank">Pedir por WhatsApp</a>
     </div>
 
     <!-- Chaton -->
     <div class="plataforma">
-      <p>Chaton</p>
-      <div class="precio">$85 mensual</div>
-      <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola%2C%20me%20interesa%20Chaton" target="_blank">Pedir por WhatsApp</a>
+      <div class="placeholder-logo">Chaton</div>
+      <p>Chaton mensual</p>
+      <div class="precio">$85</div>
+      <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20LunaStreaming%20y%20me%20interesa%20Chaton" target="_blank">Pedir por WhatsApp</a>
     </div>
 
     <!-- Duolingo -->
     <div class="plataforma">
-      <p>Duolingo</p>
-      <div class="precio">$65 mensual</div>
-      <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola%2C%20me%20interesa%20Duolingo" target="_blank">Pedir por WhatsApp</a>
+      <div class="placeholder-logo">Duolingo</div>
+      <p>Duolingo mensual</p>
+      <div class="precio">$65</div>
+      <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20LunaStreaming%20y%20me%20interesa%20Duolingo" target="_blank">Pedir por WhatsApp</a>
     </div>
   </div>
 
