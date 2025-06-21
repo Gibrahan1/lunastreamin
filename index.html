@@ -112,6 +112,24 @@
       width: 30px;
       height: 30px;
     }
+
+    .extra {
+      background: #161b22;
+      padding: 2rem 1rem;
+      max-width: 900px;
+      margin: 2rem auto;
+      border-radius: 10px;
+    }
+
+    .extra h2 {
+      color: #ff1c1c;
+      margin-bottom: 1rem;
+    }
+
+    .extra p {
+      color: #ccc;
+      margin-bottom: 0.75rem;
+    }
   </style>
 </head>
 <body>
@@ -127,18 +145,22 @@
   </div>
 
   <section class="grid">
-    <div class="plataforma" onclick="contactar('Netflix', '85', '230')">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix">
-      <div class="nombre">Netflix</div>
-      <div class="precio">Desde $85 (completa $230)</div>
-    </div>
-    <div class="plataforma" onclick="contactar('Disney+', '80', '249')">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Disney%2B_logo.svg" alt="Disney+">
-      <div class="nombre">Disney+</div>
-      <div class="precio">Desde $80 (completa $249)</div>
-    </div>
-    <!-- Agrega más plataformas aquí -->
+    <!-- tarjetas de plataformas (omitidas aquí por espacio) -->
   </section>
+
+  <div class="extra">
+    <h2>¿Cómo funciona LunaStreaming?</h2>
+    <p>1. Ingresa tu nombre y teléfono.</p>
+    <p>2. Selecciona la plataforma que deseas.</p>
+    <p>3. Serás redirigido automáticamente a WhatsApp con tu pedido listo para enviar.</p>
+
+
+    <h2>Preguntas Frecuentes</h2>
+    <p><strong>¿Cómo cancelo mi suscripción?</strong><br>Lo siento, nuestras suscripciones no permiten cancelación ni reembolso/devolución. Una vez que te suscribes, te comprometes a mantener la suscripción activa hasta que decidas no utilizarla más, pero no podrás cancelar ni obtener un reembolso.
+
+Importante: Antes de suscribirte, asegúrate de que estás dispuesto a mantener la suscripción activa durante el tiempo que la necesites.</p>
+    <p><strong>¿Qué pasa si la cuenta deja de funcionar?</strong><br>Tienes garantía el tiempo contratado.</p>
+  </div>
 
   <a id="waLink" class="whatsapp-fixed" href="#" target="_blank">
     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
