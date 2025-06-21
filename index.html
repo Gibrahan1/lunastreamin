@@ -81,37 +81,38 @@
     margin-bottom: 14px;
     display: none;
   }
+  .info-text {
+    max-width: 700px;
+    margin: 0 auto 10px auto;
+    background: #222;
+    color: #ccc;
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-size: 14px;
+    text-align: center;
+  }
 </style>
 </head>
 <body>
 
 <h1>LunaStreaming - Venta de Cuentas</h1>
 
+<div class="info-text">
+  Por favor ingresa tu nombre completo y número de teléfono (con código de país opcional, ejemplo +521234567890) para que podamos contactarte y confirmar tu pedido de forma rápida y segura.
+</div>
+
 <form id="clienteForm" autocomplete="off">
   <h2>Datos para contacto</h2>
   <label for="nombre">Nombre completo:</label>
   <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required />
   
-  <label for="telefono">Teléfono (sin espacios ni guiones):</label>
-  <input type="tel" id="telefono" name="telefono" placeholder="Ejemplo: 6674103268" pattern="[0-9]{8,15}" required />
+  <label for="telefono">Teléfono (con código de país opcional, sin espacios ni guiones):</label>
+  <input type="tel" id="telefono" name="telefono" placeholder="Ejemplo: +521234567890 o 6674103268" pattern="^\+?\d{8,15}$" required />
   
   <div class="mensaje-error" id="errorMensaje">Por favor, completa ambos campos correctamente.</div>
 </form>
 
-<div class="catalogo" id="catalogo">
-
-  <!-- Producto ejemplo -->
-  <!-- 
-  <div class="producto">
-    <div class="nombre">Netflix</div>
-    <div class="botones">
-      <button data-plataforma="Netflix" data-precio="85" data-tipo="1 perfil">1 perfil $85</button>
-      <button data-plataforma="Netflix" data-precio="230" data-tipo="completa">Completa $230</button>
-    </div>
-  </div>
-  -->
-
-</div>
+<div class="catalogo" id="catalogo"></div>
 
 <script>
 // Datos de productos (puedes modificar o añadir)
@@ -184,41 +185,4 @@ function crearCatalogo() {
 function enviarWhatsApp(event) {
   event.preventDefault();
 
-  const nombre = document.getElementById("nombre").value.trim();
-  const telefono = document.getElementById("telefono").value.trim();
-  const errorMensaje = document.getElementById("errorMensaje");
-
-  if (nombre === "" || telefono === "" || !/^\d{8,15}$/.test(telefono)) {
-    errorMensaje.style.display = "block";
-    return;
-  } else {
-    errorMensaje.style.display = "none";
-  }
-
-  const btn = event.currentTarget;
-  const plataforma = btn.dataset.plataforma;
-  const precio = btn.dataset.precio;
-  const tipo = btn.dataset.tipo;
-
-  // Construir mensaje para WhatsApp
-  let mensaje = `Hola, mi nombre es ${nombre} y mi teléfono es ${telefono}. Quiero comprar ${plataforma} (${tipo}) por $${precio}.`;
-
-  // Número de WhatsApp de destino (pon tu número aquí sin signos)
-  const numeroWhatsApp = "6674103268";
-
-  // Codificar mensaje para URL
-  const urlMensaje = encodeURIComponent(mensaje);
-
-  // URL completa para WhatsApp
-  const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${urlMensaje}`;
-
-  // Abrir WhatsApp en nueva pestaña
-  window.open(urlWhatsApp, "_blank");
-}
-
-// Crear catálogo al cargar página
-window.onload = crearCatalogo;
-</script>
-
-</body>
-</html>
+  const nombre = document.getElementById("nombr
