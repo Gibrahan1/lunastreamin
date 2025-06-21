@@ -55,10 +55,8 @@
       transform: scale(1.02);
     }
 
-    .vendido {
-      background: rgba(255, 0, 0, 0.3);
-      text-decoration: line-through;
-      opacity: 0.6;
+    .oculto {
+      display: none;
     }
 
     button {
@@ -77,6 +75,22 @@
       background: linear-gradient(to right, #ff6600, #ff0055);
     }
 
+    #formulario {
+      background: rgba(255, 255, 255, 0.08);
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 25px;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 6px;
+      border: none;
+      font-size: 1em;
+    }
+
     @media (max-width: 600px) {
       h1 { font-size: 2em; }
       .cuenta { font-size: 1em; }
@@ -93,25 +107,65 @@
   <div class="aviso">
     📌 <strong>¿Cómo funciona?</strong><br>
     Aquí verás las cuentas disponibles para entrega inmediata.<br>
-    Cada cuenta tiene un botón para marcar como entregada.<br>
-    Solo tú puedes ver esto, el cliente recibe su cuenta por WhatsApp o mensaje después de pagar.
+    Cada cuenta puede marcarse como entregada y ocultarse.<br>
+    También puedes agregar nuevas cuentas abajo, sin recargar la página.
   </div>
 
-  <div class="cuenta" id="cuenta1">
-    <p><strong>Correo:</strong> netflixpro1@mail.com</p>
-    <p><strong>Contraseña:</strong> clave123</p>
-    <button onclick="marcarVendido('cuenta1')">Marcar como entregada</button>
+  <!-- FORMULARIO PARA AGREGAR CUENTAS -->
+  <div id="formulario">
+    <h3>Agregar nueva cuenta</h3>
+    <input type="text" id="nuevoCorreo" placeholder="Correo de Netflix">
+    <input type="text" id="nuevaClave" placeholder="Contraseña">
+    <button onclick="agregarCuenta()">Agregar cuenta</button>
   </div>
 
-  <div class="cuenta" id="cuenta2">
-    <p><strong>Correo:</strong> netflixvip2@mail.com</p>
-    <p><strong>Contraseña:</strong> acceso456</p>
-    <button onclick="marcarVendido('cuenta2')">Marcar como entregada</button>
+  <!-- CONTENEDOR DE CUENTAS -->
+  <div id="cuentas">
+
+    <div class="cuenta" id="cuenta1">
+      <p><strong>Correo:</strong> netflixpro1@mail.com</p>
+      <p><strong>Contraseña:</strong> clave123</p>
+      <button onclick="entregarCuenta('cuenta1')">Marcar como entregada</button>
+    </div>
+
+    <div class="cuenta" id="cuenta2">
+      <p><strong>Correo:</strong> netflixvip2@mail.com</p>
+      <p><strong>Contraseña:</strong> acceso456</p>
+      <button onclick="entregarCuenta('cuenta2')">Marcar como entregada</button>
+    </div>
+
   </div>
 
   <script>
-    function marcarVendido(id) {
-      document.getElementById(id).classList.add('vendido');
+    function entregarCuenta(id) {
+      const cuenta = document.getElementById(id);
+      cuenta.classList.add('oculto');
+    }
+
+    function agregarCuenta() {
+      const correo = document.getElementById('nuevoCorreo').value.trim();
+      const clave = document.getElementById('nuevaClave').value.trim();
+
+      if (!correo || !clave) {
+        alert("Por favor completa ambos campos.");
+        return;
+      }
+
+      const id = 'cuenta' + Math.floor(Math.random() * 100000);
+
+      const nueva = document.createElement('div');
+      nueva.className = 'cuenta';
+      nueva.id = id;
+      nueva.innerHTML = `
+        <p><strong>Correo:</strong> ${correo}</p>
+        <p><strong>Contraseña:</strong> ${clave}</p>
+        <button onclick="entregarCuenta('${id}')">Marcar como entregada</button>
+      `;
+
+      document.getElementById('cuentas').prepend(nueva);
+
+      document.getElementById('nuevoCorreo').value = '';
+      document.getElementById('nuevaClave').value = '';
     }
   </script>
 
