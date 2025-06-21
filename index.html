@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>LunaStreaming - Catálogo de cuentas</title>
+<title>LunaStreaming - Compra cuentas</title>
 <style>
   body {
     background-color: #0a0a0a;
@@ -12,61 +12,213 @@
     margin: 0;
     padding: 20px;
   }
-  h1 {
+  h1, h2 {
     color: #f4a261;
     text-align: center;
-    margin-bottom: 20px;
   }
   .catalogo {
-    max-width: 600px;
-    margin: 0 auto;
+    max-width: 700px;
+    margin: 20px auto;
     background: #121212;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px #f4a261aa;
   }
-  ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  ul li {
+  .producto {
     border-bottom: 1px solid #333;
     padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .producto:last-child {
+    border-bottom: none;
+  }
+  .nombre {
+    flex: 2;
     font-size: 18px;
   }
-  ul li:last-child {
-    border-bottom: none;
+  .botones {
+    flex: 2;
+    text-align: right;
+  }
+  button {
+    background-color: #f4a261;
+    border: none;
+    color: #000;
+    padding: 8px 12px;
+    margin-left: 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  button:hover {
+    background-color: #e09e4a;
+  }
+  form {
+    max-width: 700px;
+    margin: 0 auto 20px auto;
+    background: #121212;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px #f4a261aa;
+  }
+  label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+  }
+  input[type="text"], input[type="tel"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 14px;
+    border-radius: 4px;
+    border: none;
+    font-size: 16px;
+  }
+  .mensaje-error {
+    color: #ff5555;
+    margin-bottom: 14px;
+    display: none;
   }
 </style>
 </head>
 <body>
 
-<h1>Catálogo de Cuentas LunaStreaming</h1>
+<h1>LunaStreaming - Venta de Cuentas</h1>
 
-<div class="catalogo">
-  <ul>
-    <li>Netflix $85 (completa $230)</li>
-    <li>Disney $80 (completa $249)</li>
-    <li>Prime $55 (completa $90)</li>
-    <li>Vix $45 (completa $70)</li>
-    <li>Max $50 (completa $85)</li>
-    <li>Crunchyroll $45 (completa $85)</li>
-    <li>Paramount $50 (completa $85)</li>
-    <li>Canva mes $50 (anual $275)</li>
-    <li>Spotify $60 (3 meses $140)</li>
-    <li>Pornhub completa $72.05</li>
-    <li>ElProfeNet $74</li>
-    <li>JellyFin $65 (completa $89)</li>
-    <li>MeteGol $75</li>
-    <li>Plex $63 (completa $85)</li>
-    <li>Youtube $80 (3 meses $130)</li>
-    <li>Office 365 1 dispositivo Anual $290</li>
-    <li>AppleTv mes $80</li>
-    <li>ChatGpt mes $145</li>
-    <li>Chaton mes $85</li>
-    <li>Duolingo mes $65</li>
-  </ul>
+<form id="clienteForm" autocomplete="off">
+  <h2>Datos para contacto</h2>
+  <label for="nombre">Nombre completo:</label>
+  <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required />
+  
+  <label for="telefono">Teléfono (sin espacios ni guiones):</label>
+  <input type="tel" id="telefono" name="telefono" placeholder="Ejemplo: 6674103268" pattern="[0-9]{8,15}" required />
+  
+  <div class="mensaje-error" id="errorMensaje">Por favor, completa ambos campos correctamente.</div>
+</form>
+
+<div class="catalogo" id="catalogo">
+
+  <!-- Producto ejemplo -->
+  <!-- 
+  <div class="producto">
+    <div class="nombre">Netflix</div>
+    <div class="botones">
+      <button data-plataforma="Netflix" data-precio="85" data-tipo="1 perfil">1 perfil $85</button>
+      <button data-plataforma="Netflix" data-precio="230" data-tipo="completa">Completa $230</button>
+    </div>
+  </div>
+  -->
+
 </div>
+
+<script>
+// Datos de productos (puedes modificar o añadir)
+const productos = [
+  { nombre: "Netflix", precio1: 85, precioCompleto: 230 },
+  { nombre: "Disney", precio1: 80, precioCompleto: 249 },
+  { nombre: "Prime", precio1: 55, precioCompleto: 90 },
+  { nombre: "Vix", precio1: 45, precioCompleto: 70 },
+  { nombre: "Max", precio1: 50, precioCompleto: 85 },
+  { nombre: "Crunchyroll", precio1: 45, precioCompleto: 85 },
+  { nombre: "Paramount", precio1: 50, precioCompleto: 85 },
+  { nombre: "Canva mes", precio1: 50, precioCompleto: 275 },
+  { nombre: "Spotify", precio1: 60, precioCompleto: 140 },
+  { nombre: "Pornhub completa", precio1: 72.05, precioCompleto: null },
+  { nombre: "ElProfeNet", precio1: 74, precioCompleto: null },
+  { nombre: "JellyFin", precio1: 65, precioCompleto: 89 },
+  { nombre: "MeteGol", precio1: 75, precioCompleto: null },
+  { nombre: "Plex", precio1: 63, precioCompleto: 85 },
+  { nombre: "Youtube", precio1: 80, precioCompleto: 130 },
+  { nombre: "Office 365 1 dispositivo Anual", precio1: 290, precioCompleto: null },
+  { nombre: "AppleTv mes", precio1: 80, precioCompleto: null },
+  { nombre: "ChatGpt mes", precio1: 145, precioCompleto: null },
+  { nombre: "Chaton mes", precio1: 85, precioCompleto: null },
+  { nombre: "Duolingo mes", precio1: 65, precioCompleto: null }
+];
+
+// Función para crear el catálogo en HTML
+function crearCatalogo() {
+  const catalogoDiv = document.getElementById("catalogo");
+  catalogoDiv.innerHTML = ""; // limpiar
+
+  productos.forEach(producto => {
+    const divProducto = document.createElement("div");
+    divProducto.classList.add("producto");
+
+    const nombreDiv = document.createElement("div");
+    nombreDiv.classList.add("nombre");
+    nombreDiv.textContent = producto.nombre;
+    divProducto.appendChild(nombreDiv);
+
+    const botonesDiv = document.createElement("div");
+    botonesDiv.classList.add("botones");
+
+    // Botón 1 perfil
+    const btn1 = document.createElement("button");
+    btn1.textContent = `1 perfil $${producto.precio1}`;
+    btn1.dataset.plataforma = producto.nombre;
+    btn1.dataset.precio = producto.precio1;
+    btn1.dataset.tipo = "1 perfil";
+    btn1.addEventListener("click", enviarWhatsApp);
+    botonesDiv.appendChild(btn1);
+
+    // Botón completa (solo si precioCompleto existe)
+    if (producto.precioCompleto) {
+      const btnCompleto = document.createElement("button");
+      btnCompleto.textContent = `Completa $${producto.precioCompleto}`;
+      btnCompleto.dataset.plataforma = producto.nombre;
+      btnCompleto.dataset.precio = producto.precioCompleto;
+      btnCompleto.dataset.tipo = "completa";
+      btnCompleto.addEventListener("click", enviarWhatsApp);
+      botonesDiv.appendChild(btnCompleto);
+    }
+
+    divProducto.appendChild(botonesDiv);
+    catalogoDiv.appendChild(divProducto);
+  });
+}
+
+// Función para validar formulario y enviar mensaje WhatsApp
+function enviarWhatsApp(event) {
+  event.preventDefault();
+
+  const nombre = document.getElementById("nombre").value.trim();
+  const telefono = document.getElementById("telefono").value.trim();
+  const errorMensaje = document.getElementById("errorMensaje");
+
+  if (nombre === "" || telefono === "" || !/^\d{8,15}$/.test(telefono)) {
+    errorMensaje.style.display = "block";
+    return;
+  } else {
+    errorMensaje.style.display = "none";
+  }
+
+  const btn = event.currentTarget;
+  const plataforma = btn.dataset.plataforma;
+  const precio = btn.dataset.precio;
+  const tipo = btn.dataset.tipo;
+
+  // Construir mensaje para WhatsApp
+  let mensaje = `Hola, mi nombre es ${nombre} y mi teléfono es ${telefono}. Quiero comprar ${plataforma} (${tipo}) por $${precio}.`;
+
+  // Número de WhatsApp de destino (pon tu número aquí sin signos)
+  const numeroWhatsApp = "6674103268";
+
+  // Codificar mensaje para URL
+  const urlMensaje = encodeURIComponent(mensaje);
+
+  // URL completa para WhatsApp
+  const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${urlMensaje}`;
+
+  // Abrir WhatsApp en nueva pestaña
+  window.open(urlWhatsApp, "_blank");
+}
+
+// Crear catálogo al cargar página
+window.onload = crearCatalogo;
+</script>
 
 </body>
 </html>
