@@ -1,185 +1,98 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LunaStreaming | Venta de Cuentas Streaming</title>
+  <meta charset="UTF-8">
+  <title>LunaStreaming - Cuentas Netflix</title>
   <style>
     body {
-      margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: #0d1117;
-      color: #e1e4e8;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      color: #ffffff;
+      margin: 0;
+      padding: 20px;
     }
 
     header {
       text-align: center;
-      padding: 2rem 1rem 1rem;
+      margin-bottom: 30px;
     }
 
-    header h1 {
-      font-size: 2.5rem;
-      color: #ff1c1c;
-      margin-bottom: 0.5rem;
+    h1 {
+      font-size: 3em;
+      background: linear-gradient(to right, #ff416c, #ff4b2b);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin: 0;
     }
 
-    header p {
-      font-size: 1rem;
-      color: #ccc;
+    h2 {
+      font-weight: normal;
+      font-size: 1.2em;
+      color: #f0f0f0;
+      margin-top: 10px;
     }
 
-    .formulario {
-      background: #161b22;
-      padding: 1rem;
-      border-radius: 10px;
-      max-width: 500px;
-      margin: 1rem auto;
-      text-align: center;
+    .cuenta {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      transition: 0.3s;
     }
 
-    .formulario input {
-      padding: 0.7rem;
-      margin: 0.5rem;
-      width: 45%;
-      border-radius: 5px;
-      border: none;
-      outline: none;
+    .cuenta:hover {
+      transform: scale(1.01);
     }
 
-    .formulario small {
-      display: block;
-      color: #aaa;
-      font-size: 0.9rem;
-      margin-top: 0.5rem;
+    .vendido {
+      background: rgba(255, 0, 0, 0.2);
+      text-decoration: line-through;
+      opacity: 0.5;
     }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1rem;
-      padding: 1rem;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-
-    .plataforma {
-      background: #1c1f26;
-      border-radius: 10px;
-      padding: 1rem;
-      text-align: center;
-      cursor: pointer;
-      transition: transform 0.2s;
-    }
-
-    .plataforma:hover {
-      transform: translateY(-5px);
-      background: #22252c;
-    }
-
-    .plataforma img {
-      max-width: 80px;
-      margin-bottom: 0.5rem;
-    }
-
-    .nombre {
-      font-weight: bold;
-      font-size: 1.1rem;
-      color: #ff1c1c;
-    }
-
-    .precio {
-      color: #ccc;
-      font-size: 0.95rem;
-    }
-
-    .whatsapp-fixed {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #25d366;
+    button {
+      margin-top: 10px;
+      background: linear-gradient(to right, #ff416c, #ff4b2b);
       color: white;
-      padding: 0.75rem;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 55px;
-      height: 55px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      border: none;
+      padding: 10px 15px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: 0.3s;
     }
 
-    .whatsapp-fixed img {
-      width: 30px;
-      height: 30px;
-    }
-
-    .extra {
-      background: #161b22;
-      padding: 2rem 1rem;
-      max-width: 900px;
-      margin: 2rem auto;
-      border-radius: 10px;
-    }
-
-    .extra h2 {
-      color: #ff1c1c;
-      margin-bottom: 1rem;
-    }
-
-    .extra p {
-      color: #ccc;
-      margin-bottom: 0.75rem;
+    button:hover {
+      background: linear-gradient(to right, #ff4b2b, #ff416c);
     }
   </style>
 </head>
 <body>
+
   <header>
     <h1>LunaStreaming</h1>
-    <p>Tu mejor opción para comprar cuentas de streaming</p>
+    <h2>¡La onda del streaming!</h2>
   </header>
 
-  <div class="formulario">
-    <input type="text" id="nombreCliente" placeholder="Tu nombre" />
-    <input type="tel" id="telefonoCliente" placeholder="Tu teléfono" />
-    <small>Usamos estos datos para contactarte por WhatsApp y llevar el control de tu pedido de forma segura.</small>
+  <div class="cuenta" id="cuenta1">
+    <p><strong>Correo:</strong> netflixuser1@mail.com</p>
+    <p><strong>Contraseña:</strong> pass1234</p>
+    <button onclick="marcarVendido('cuenta1')">Marcar como vendido</button>
   </div>
 
-  <section class="grid">
-    <!-- tarjetas de plataformas (omitidas aquí por espacio) -->
-  </section>
-
-  <div class="extra">
-    <h2>¿Cómo funciona LunaStreaming?</h2>
-    <p>1. Ingresa tu nombre y teléfono.</p>
-    <p>2. Selecciona la plataforma que deseas.</p>
-    <p>3. Serás redirigido automáticamente a WhatsApp con tu pedido listo para enviar.</p>
-
-
-    <h2>Preguntas Frecuentes</h2>
-    <p><strong>¿Cómo cancelo mi suscripción?</strong><br>Lo siento, nuestras suscripciones no permiten cancelación ni reembolso/devolución. Una vez que te suscribes, te comprometes a mantener la suscripción activa hasta que decidas no utilizarla más, pero no podrás cancelar ni obtener un reembolso.
-
-Importante: Antes de suscribirte, asegúrate de que estás dispuesto a mantener la suscripción activa durante el tiempo que la necesites.</p>
-    <p><strong>¿Qué pasa si la cuenta deja de funcionar?</strong><br>Tienes garantía el tiempo contratado.</p>
+  <div class="cuenta" id="cuenta2">
+    <p><strong>Correo:</strong> netflixuser2@mail.com</p>
+    <p><strong>Contraseña:</strong> claveNetflix</p>
+    <button onclick="marcarVendido('cuenta2')">Marcar como vendido</button>
   </div>
-
-  <a id="waLink" class="whatsapp-fixed" href="#" target="_blank">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-  </a>
 
   <script>
-    function contactar(plataforma, precioMin, precioFull) {
-      const nombre = document.getElementById('nombreCliente').value.trim();
-      const telefono = document.getElementById('telefonoCliente').value.trim();
-
-      if (!nombre || !telefono) {
-        alert('Por favor, llena tu nombre y teléfono antes de continuar.');
-        return;
-      }
-
-      const mensaje = `Hola, vengo de LunaStreaming y me interesa la plataforma ${plataforma}. Mi nombre es ${nombre} y mi teléfono es ${telefono}.`;
-      const url = `https://wa.me/526674103268?text=${encodeURIComponent(mensaje)}`;
-      window.open(url, '_blank');
+    function marcarVendido(id) {
+      const cuenta = document.getElementById(id);
+      cuenta.classList.add('vendido');
     }
   </script>
+
 </body>
 </html>
