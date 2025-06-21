@@ -115,7 +115,6 @@
 <div class="catalogo" id="catalogo"></div>
 
 <script>
-// Datos de productos (puedes modificar o añadir)
 const productos = [
   { nombre: "Netflix", precio1: 85, precioCompleto: 230 },
   { nombre: "Disney", precio1: 80, precioCompleto: 249 },
@@ -139,10 +138,9 @@ const productos = [
   { nombre: "Duolingo mes", precio1: 65, precioCompleto: null }
 ];
 
-// Función para crear el catálogo en HTML
 function crearCatalogo() {
   const catalogoDiv = document.getElementById("catalogo");
-  catalogoDiv.innerHTML = ""; // limpiar
+  catalogoDiv.innerHTML = "";
 
   productos.forEach(producto => {
     const divProducto = document.createElement("div");
@@ -156,7 +154,6 @@ function crearCatalogo() {
     const botonesDiv = document.createElement("div");
     botonesDiv.classList.add("botones");
 
-    // Botón 1 perfil
     const btn1 = document.createElement("button");
     btn1.textContent = `1 perfil $${producto.precio1}`;
     btn1.dataset.plataforma = producto.nombre;
@@ -165,7 +162,6 @@ function crearCatalogo() {
     btn1.addEventListener("click", enviarWhatsApp);
     botonesDiv.appendChild(btn1);
 
-    // Botón completa (solo si precioCompleto existe)
     if (producto.precioCompleto) {
       const btnCompleto = document.createElement("button");
       btnCompleto.textContent = `Completa $${producto.precioCompleto}`;
@@ -181,7 +177,6 @@ function crearCatalogo() {
   });
 }
 
-// Función para validar formulario y enviar mensaje WhatsApp
 function enviarWhatsApp(event) {
   event.preventDefault();
 
@@ -189,7 +184,6 @@ function enviarWhatsApp(event) {
   const telefono = document.getElementById("telefono").value.trim();
   const errorMensaje = document.getElementById("errorMensaje");
 
-  // Validación teléfono con código de país opcional + seguido de 8-15 dígitos
   const telefonoValido = /^\+?\d{8,15}$/.test(telefono);
 
   if (nombre === "" || telefono === "" || !telefonoValido) {
@@ -204,7 +198,7 @@ function enviarWhatsApp(event) {
   const precio = btn.dataset.precio;
   const tipo = btn.dataset.tipo;
 
-  let mensaje = `Hola, mi nombre es ${nombre} y mi teléfono es ${telefono}. Quiero comprar ${plataforma} (${tipo}) por $${precio}.`;
+  const mensaje = `Hola, mi nombre es ${nombre} y mi teléfono es ${telefono}. Quiero comprar ${plataforma} (${tipo}) por $${precio}.`;
 
   const numeroWhatsApp = "6674103268";
   const urlMensaje = encodeURIComponent(mensaje);
