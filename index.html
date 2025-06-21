@@ -27,30 +27,6 @@
       margin-top: 6px;
       color: #ffde59;
     }
-    .formulario {
-      max-width: 600px;
-      margin: 0 auto 30px;
-      padding: 20px;
-      background: rgba(255,255,255,0.1);
-      border-radius: 12px;
-      text-align: center;
-    }
-    .formulario h2 {
-      margin-bottom: 10px;
-    }
-    .formulario p {
-      font-size: 0.95rem;
-      color: #f1f1f1;
-      margin-bottom: 15px;
-    }
-    .formulario input {
-      padding: 10px;
-      border-radius: 8px;
-      border: none;
-      width: 80%;
-      max-width: 300px;
-      margin-bottom: 10px;
-    }
     .catalogo {
       display: grid;
       grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
@@ -88,7 +64,7 @@
       color: #ffeb99;
     }
     .btn-comprar {
-      margin-top: 15px;
+      margin-top: 10px;
       background: linear-gradient(90deg, #ff416c, #ff4b2b);
       border: none;
       border-radius: 10px;
@@ -114,64 +90,30 @@
   <p>Venta de cuentas streaming - Entrega inmediata por WhatsApp</p>
 </header>
 
-<div class="formulario">
-  <h2>Tus datos para el pedido</h2>
-  <p>Ingresa tu nombre y número para poder contactarte vía WhatsApp y registrar tu compra.</p>
-  <input type="text" id="nombreCliente" placeholder="Tu nombre"><br>
-  <input type="tel" id="telefonoCliente" placeholder="Tu número">
-</div>
-
 <div class="catalogo">
   <div class="producto">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix" />
     <h2>Netflix</h2>
-    <p><strong>Básico:</strong> $85 MXN</p>
-    <p><strong>Completo:</strong> $230 MXN</p>
-    <a class="btn-comprar" href="#" onclick="enviarPedido('Netflix', '85', '230')">Comprar por WhatsApp</a>
+    <p>Básico: $85</p>
+    <p>Completo: $230</p>
+    <a class="btn-comprar" href="https://wa.me/526674103268?text=Hola,%20quiero%20comprar%20la%20cuenta%20básica%20de%20Netflix%20de%20LunaStreaming">Comprar Básico</a>
+    <a class="btn-comprar" href="https://wa.me/526674103268?text=Hola,%20quiero%20comprar%20la%20cuenta%20completa%20de%20Netflix%20de%20LunaStreaming">Comprar Completa</a>
   </div>
   <div class="producto">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Disney%2B_logo.svg" alt="Disney+" />
-    <h2>Disney+</h2>
-    <p><strong>Básico:</strong> $80 MXN</p>
-    <p><strong>Completo:</strong> $249 MXN</p>
-    <a class="btn-comprar" href="#" onclick="enviarPedido('Disney+', '80', '249')">Comprar por WhatsApp</a>
+    <h2>Disney</h2>
+    <p>Básico: $80</p>
+    <p>Completo: $249</p>
+    <a class="btn-comprar" href="https://wa.me/526674103268?text=Hola,%20quiero%20comprar%20la%20cuenta%20básica%20de%20Disney%20de%20LunaStreaming">Comprar Básico</a>
+    <a class="btn-comprar" href="https://wa.me/526674103268?text=Hola,%20quiero%20comprar%20la%20cuenta%20completa%20de%20Disney%20de%20LunaStreaming">Comprar Completa</a>
   </div>
   <div class="producto">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Prime_Video.png" alt="Prime Video" />
-    <h2>Prime Video</h2>
-    <p><strong>Básico:</strong> $55 MXN</p>
-    <p><strong>Completo:</strong> $90 MXN</p>
-    <a class="btn-comprar" href="#" onclick="enviarPedido('Prime Video', '55', '90')">Comprar por WhatsApp</a>
+    <h2>Prime</h2>
+    <p>Básico: $55</p>
+    <p>Completo: $90</p>
+    <a class="btn-comprar" href="https://wa.me/526674103268?text=Hola,%20quiero%20comprar%20la%20cuenta%20básica%20de%20Prime%20de%20LunaStreaming">Comprar Básico</a>
+    <a class="btn-comprar" href="https://wa.me/526674103268?text=Hola,%20quiero%20comprar%20la%20cuenta%20completa%20de%20Prime%20de%20LunaStreaming">Comprar Completa</a>
   </div>
-  <div class="producto">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c9/Duolingo_logo.svg" alt="Duolingo" />
-    <h2>Duolingo</h2>
-    <p><strong>Mensual:</strong> $65 MXN</p>
-    <a class="btn-comprar" href="#" onclick="enviarPedido('Duolingo', '65')">Comprar por WhatsApp</a>
-  </div>
+  <!-- Aquí puedes continuar el mismo formato para las demás plataformas -->
 </div>
-
-<script>
-  function enviarPedido(plataforma, precio, precioFull = '') {
-    const nombre = document.getElementById('nombreCliente').value.trim();
-    const telefono = document.getElementById('telefonoCliente').value.trim();
-
-    if (!nombre || !telefono) {
-      alert('Por favor ingresa tu nombre y número de teléfono antes de continuar.');
-      return;
-    }
-
-    let mensaje = `Hola, vengo de LunaStreaming. Me interesa la plataforma ${plataforma}. Mi nombre es ${nombre} y mi número es ${telefono}.`;
-    if (precioFull) {
-      mensaje += ` Precio: $${precio} básico (completo $${precioFull})`;
-    } else {
-      mensaje += ` Precio: $${precio}`;
-    }
-
-    const url = `https://wa.me/526674103268?text=${encodeURIComponent(mensaje)}`;
-    window.open(url, '_blank');
-  }
-</script>
 
 </body>
 </html>
