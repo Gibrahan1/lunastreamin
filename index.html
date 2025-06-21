@@ -16,9 +16,9 @@
       text-align: center;
       margin-bottom: 10px;
     }
-    .form-container {
+    #formularioCliente {
       max-width: 400px;
-      margin: 0 auto 30px;
+      margin: 0 auto 20px auto;
       background: #1c1c1c;
       padding: 15px 20px;
       border-radius: 10px;
@@ -27,7 +27,7 @@
       flex-wrap: wrap;
       justify-content: center;
     }
-    .form-container input {
+    #formularioCliente input {
       flex: 1 1 45%;
       padding: 10px;
       border-radius: 6px;
@@ -96,18 +96,6 @@
       padding: 0 10px;
       text-align: center;
     }
-    .custom-vix {
-      background: linear-gradient(135deg, #2b2b2b, #3d3d3d);
-    }
-    .custom-elprofenet {
-      background: linear-gradient(135deg, #262626, #383838);
-    }
-    .custom-metegol {
-      background: linear-gradient(135deg, #2e2e2e, #424242);
-    }
-    .custom-chaton {
-      background: linear-gradient(135deg, #242424, #363636);
-    }
     .custom-default {
       background: linear-gradient(135deg, #2a2a2a, #3c3c3c);
     }
@@ -115,7 +103,7 @@
       .catalogo {
         padding: 0 10px;
       }
-      .form-container input {
+      #formularioCliente input {
         flex: 1 1 100%;
       }
     }
@@ -124,41 +112,36 @@
 <body>
   <h1>LunaStreaming</h1>
   <h2>Catálogo de cuentas y pedidos</h2>
-
-  <div class="form-container">
+  <div id="formularioCliente">
     <input type="text" id="clienteNombre" placeholder="Tu nombre completo" />
     <input type="tel" id="clienteTelefono" placeholder="Tu teléfono con lada" />
   </div>
-
   <div class="catalogo">
-    <!-- Aquí tus plataformas, por ejemplo: -->
-
-    <div class="plataforma">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix" 
-           onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-      <div class="custom-card custom-default">Netflix</div>
-      <div class="precio">$85 (completa $230)</div>
-      <button onclick="pedirWhatsApp('Netflix $85 (completa $230)')">Pedir por WhatsApp</button>
-    </div>
-
-    <div class="plataforma">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Disney%2B_logo.svg" alt="Disney+" 
-           onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-      <div class="custom-card custom-default">Disney</div>
-      <div class="precio">$80 (completa $249)</div>
-      <button onclick="pedirWhatsApp('Disney $80 (completa $249)')">Pedir por WhatsApp</button>
-    </div>
-
-    <!-- Repite todas tus plataformas igual -->
-    <!-- ... -->
-
+    <div class="plataforma"><div class="custom-card custom-default">Netflix</div><div class="precio">$85 (completa $230)</div><button onclick="abrirWhatsApp('Netflix $85 (completa $230)')">Pedir por WhatsApp</button></div>
+    <div class="plataforma"><div class="custom-card custom-default">Disney</div><div class="precio">$80 (completa $249)</div><button onclick="abrirWhatsApp('Disney $80 (completa $249)')">Pedir por WhatsApp</button></div>
+    <div class="plataforma"><div class="custom-card custom-default">Prime</div><div class="precio">$55 (completa $90)</div><button onclick="abrirWhatsApp('Prime $55 (completa $90)')">Pedir por WhatsApp</button></div>
+    <div class="plataforma"><div class="custom-card custom-default">Vix</div><div class="precio">$45 (completa $70)</div><button onclick="abrirWhatsApp('Vix $45 (completa $70)')">Pedir por WhatsApp</button></div>
+    <div class="plataforma"><div class="custom-card custom-default">Max</div><div class="precio">$50 (completa $85)</div><button onclick="abrirWhatsApp('Max $50 (completa $85)')">Pedir por WhatsApp</button></div>
+    <div class="plataforma"><div class="custom-card custom-default">Crunchyroll</div><div class="precio">$45 (completa $85)</div><button onclick="abrirWhatsApp('Crunchyroll $45 (completa $85)')">Pedir por WhatsApp</button></div>
+    <div class="plataforma"><div class="custom-card custom-default">Paramount</div><div class="precio">$50 (completa $85)</div><button onclick="abrirWhatsApp('Paramount $50 (completa $85)')">Pedir por WhatsApp</button></div>
+    <div class="plataforma"><div class="custom-card custom-default">Canva mes</div><div class="precio">$50 (anual $275)</div><button onclick="abrirWhatsApp('Canva mes $50 (anual $275)')">Pedir por WhatsApp</button></div>
+    <div class="plataforma"><div class="custom-card custom-default">Spotify</div><div class="precio">$60 (3 meses $140)</div><button onclick="abrirWhatsApp('Spotify $60 (3 meses $140)')">Pedir por WhatsApp</button></div>
+    <div class="plataforma"><div class="custom-card custom-default">Pornhub completa</div><div class="precio">$72.05</div><button onclick="abrirWhatsApp('Pornhub completa $72.05')">Pedir por WhatsApp</button></div>
+    <div class="plataforma"><div class="custom-card custom-default">ElProfeNet</div><div class="precio">$74</div><button onclick="abrirWhatsApp('ElProfeNet $74')">Pedir por WhatsApp</button></div>
+    <div class="plataforma"><div class="custom-card custom-default">JellyFin</div><div class="precio">$65 (completa $89)</div><button onclick="abrirWhatsApp('JellyFin $65 (completa $89)')">Pedir por WhatsApp</button></div>
+    <div class="plataforma"><div class="custom-card custom-default">MeteGol</div><div class="precio">$75</div><button onclick="abrirWhatsApp('MeteGol $75')">Pedir por WhatsApp</button></div>
+    <div class="plataforma"><div class="custom-card custom-default">Plex</div><div class="precio">$63 (completa $85)</div><button onclick="abrirWhatsApp('Plex $63 (completa $85)')">Pedir por WhatsApp</button></div>
+    <div class="plataforma"><div class="custom-card custom-default">YouTube</div><div class="precio">$80 (3 meses $130)</div><button onclick="abrirWhatsApp('YouTube $80 (3 meses $130)')">Pedir por WhatsApp</button></div>
+    <div class="plataforma"><div class="custom-card custom-default">Office 365</div><div class="precio">$290</div><button onclick="abrirWhatsApp('Office 365 1 dispositivo Anual $290')">Pedir por WhatsApp</button></div>
+    <div class="plataforma"><div class="custom-card custom-default">Apple TV</div><div class="precio">$80</div><button onclick="abrirWhatsApp('Apple TV mes $80')">Pedir por WhatsApp</button></div>
+    <div class="plataforma"><div class="custom-card custom-default">ChatGPT</div><div class="precio">$145</div><button onclick="abrirWhatsApp('ChatGPT mes $145')">Pedir por WhatsApp</button></div>
+    <div class="plataforma"><div class="custom-card custom-default">Chaton</div><div class="precio">$85</div><button onclick="abrirWhatsApp('Chaton mes $85')">Pedir por WhatsApp</button></div>
+    <div class="plataforma"><div class="custom-card custom-default">Duolingo</div><div class="precio">$65</div><button onclick="abrirWhatsApp('Duolingo mes $65')">Pedir por WhatsApp</button></div>
   </div>
-
   <script>
-    function pedirWhatsApp(plataforma) {
+    function abrirWhatsApp(plataforma) {
       const nombre = document.getElementById("clienteNombre").value.trim();
       const telefono = document.getElementById("clienteTelefono").value.trim();
-
       if (!nombre) {
         alert("Por favor, escribe tu nombre completo en el formulario.");
         return;
@@ -167,9 +150,11 @@
         alert("Por favor, escribe tu teléfono con lada en el formulario.");
         return;
       }
-
       const mensaje = encodeURIComponent(
-        `Hola, soy ${nombre}.\nMi teléfono es ${telefono}.\nQuiero pedir: ${plataforma}.\nGracias.`
+        `Hola, soy ${nombre}.
+Mi teléfono es ${telefono}.
+Quiero pedir: ${plataforma}.
+Gracias.`
       );
       window.open(`https://wa.me/526674103268?text=${mensaje}`, "_blank");
     }
