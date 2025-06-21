@@ -1,393 +1,399 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>LunaStreaming</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      background: #111;
-      color: #fff;
-      margin: 0;
-      padding: 2rem;
-    }
-    h1 {
-      color: #e50914;
-      font-size: 2.5rem;
-    }
-    p {
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
-    }
-    .grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 2rem;
-    }
-    .plataforma {
-      background: #222;
-      padding: 1rem;
-      border-radius: 10px;
-      width: 200px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.4);
-      transition: transform 0.3s;
-    }
-    .plataforma:hover {
-      transform: scale(1.05);
-    }
-    .plataforma img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-      margin: 0 auto 0.5rem;
-    }
-    .placeholder-logo {
-      background: #555;
-      color: #fff;
-      font-weight: bold;
-      height: 80px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 0.5rem;
-      border-radius: 8px;
-      font-size: 1.1rem;
-      user-select: none;
-    }
-    .plataforma p {
-      margin: 0.3rem 0;
-      font-weight: bold;
-    }
-    .precio {
-      color: #ccc;
-      font-size: 0.95rem;
-      margin-bottom: 0.5rem;
-    }
-    .boton-wsp {
-      background-color: #25D366;
-      color: white;
-      padding: 8px 10px;
-      border: none;
-      border-radius: 5px;
-      font-size: 0.9rem;
-      cursor: pointer;
-      text-decoration: none;
-      display: inline-block;
-      margin: 0.2rem 0.1rem;
-    }
-    /* Estilos para el formulario */
-    form {
-      background: #222;
-      padding: 1.5rem 2rem;
-      border-radius: 10px;
-      max-width: 400px;
-      margin: 0 auto 3rem auto;
-      box-shadow: 0 0 15px rgba(0,0,0,0.7);
-      text-align: left;
-      color: #eee;
-    }
-    form label {
-      display: block;
-      margin-bottom: 0.5rem;
-      font-weight: bold;
-      color: #e50914;
-    }
-    form input {
-      width: 100%;
-      padding: 0.5rem;
-      margin-bottom: 1.2rem;
-      border-radius: 8px;
-      border: none;
-      font-size: 1rem;
-      background: #333;
-      color: #eee;
-      box-shadow: inset 0 0 5px rgba(0,0,0,0.5);
-      transition: background 0.3s, color 0.3s;
-    }
-    form input::placeholder {
-      color: #bbb;
-    }
-    form input:focus {
-      outline: none;
-      background: #444;
-      color: #fff;
-      box-shadow: 0 0 8px #e50914;
-    }
-    form button {
-      background-color: #e50914;
-      color: white;
-      border: none;
-      padding: 0.75rem 1.2rem;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 1.1rem;
-      width: 100%;
-      transition: background-color 0.3s;
-    }
-    form button:hover {
-      background-color: #b4070e;
-    }
-    form small {
-      display: block;
-      font-size: 0.8rem;
-      color: #bbb;
-      margin-top: -1rem;
-      margin-bottom: 1.5rem;
-    }
-    form a {
-      color: #e50914;
-      text-decoration: underline;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LunaStreaming</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: #111;
+      color: #fff;
+      margin: 0;
+      padding: 2rem;
+    }
+    h1 {
+      color: #e50914;
+      font-size: 2.5rem;
+    }
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+    .grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    }
+    .plataforma {
+      background: #222;
+      padding: 1rem;
+      border-radius: 10px;
+      width: 200px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+      transition: transform 0.3s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .plataforma:hover {
+      transform: scale(1.05);
+    }
+    .plataforma img {
+      max-width: 120px;
+      height: auto;
+      margin-bottom: 0.5rem;
+    }
+    .placeholder-logo {
+      background: #555;
+      color: #fff;
+      font-weight: bold;
+      height: 80px;
+      width: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0.5rem;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      user-select: none;
+    }
+    .plataforma p {
+      margin: 0.3rem 0;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+    .precio {
+      color: #ccc;
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+      white-space: pre-line;
+    }
+    .botones-container {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .boton-wsp {
+      background-color: #25D366;
+      color: white;
+      padding: 6px 10px;
+      border: none;
+      border-radius: 5px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      min-width: 80px;
+      text-align: center;
+      user-select: none;
+      transition: background-color 0.3s;
+    }
+    .boton-wsp:hover {
+      background-color: #1ebe57;
+    }
+    /* Formulario estilos */
+    form {
+      background: #222;
+      padding: 1.5rem 2rem;
+      border-radius: 10px;
+      max-width: 400px;
+      margin: 0 auto 3rem auto;
+      box-shadow: 0 0 15px rgba(0,0,0,0.7);
+      text-align: left;
+      color: #eee;
+    }
+    form label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: bold;
+      color: #e50914;
+    }
+    form input, form select {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1.2rem;
+      border-radius: 8px;
+      border: none;
+      font-size: 1rem;
+      background: #333;
+      color: #eee;
+      box-shadow: inset 0 0 5px rgba(0,0,0,0.5);
+      transition: background 0.3s, color 0.3s;
+    }
+    form input::placeholder {
+      color: #bbb;
+    }
+    form input:focus, form select:focus {
+      outline: none;
+      background: #444;
+      color: #fff;
+      box-shadow: 0 0 8px #e50914;
+    }
+    form button {
+      background-color: #e50914;
+      color: white;
+      border: none;
+      padding: 0.75rem 1.2rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      width: 100%;
+      transition: background-color 0.3s;
+    }
+    form button:hover {
+      background-color: #b4070e;
+    }
+    form small {
+      display: block;
+      font-size: 0.8rem;
+      color: #bbb;
+      margin-top: -1rem;
+      margin-bottom: 1.5rem;
+    }
+    form a {
+      color: #e50914;
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
-  <h1>Bienvenido a LunaStreaming</h1>
-  <p>¡La onda del streaming!</p>
+  <h1>Bienvenido a LunaStreaming</h1>
+  <p>¡La onda del streaming!</p>
 
-  <!-- FORMULARIO -->
-  <form id="pedidoForm">
-    <label for="nombre">Nombre completo</label>
-    <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required />
+  <!-- FORMULARIO -->
+  <form id="pedidoForm">
+    <label for="nombre">Nombre completo</label>
+    <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required />
 
-    <label for="telefono">Número de teléfono</label>
-    <input type="tel" id="telefono" name="telefono" placeholder="10 dígitos sin espacios" pattern="[0-9]{10}" required />
+    <label for="telefono">Número de teléfono</label>
+    <input type="tel" id="telefono" name="telefono" placeholder="10 dígitos sin espacios" pattern="[0-9]{10}" required />
 
-    <small>Al enviar este formulario aceptas que tus datos serán usados únicamente para procesar tu pedido, conforme a nuestra <a href="#" target="_blank" rel="noopener noreferrer">política de privacidad</a>.</small>
+    <small>Al enviar este formulario aceptas que tus datos serán usados únicamente para procesar tu pedido, conforme a nuestra <a href="#" target="_blank" rel="noopener noreferrer">política de privacidad</a>.</small>
 
-    <button type="submit">Enviar pedido por WhatsApp</button>
-  </form>
+    <button type="submit">Enviar pedido por WhatsApp</button>
+  </form>
 
-  <div class="grid">
-    <!-- Netflix -->
-    <div class="plataforma">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix" />
-      <p>Netflix</p>
-      <div class="precio">1 perfil $85 / Completa $230</div>
-      <a class="boton-wsp" href="#" data-plataforma="Netflix" data-opcion="1 perfil" data-precio="85">1 perfil</a>
-      <a class="boton-wsp" href="#" data-plataforma="Netflix" data-opcion="Cuenta completa" data-precio="230">Cuenta completa</a>
-    </div>
+  <div class="grid">
 
-    <!-- Disney+ -->
-    <div class="plataforma">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Disney%2B_logo.svg" alt="Disney+" />
-      <p>Disney+</p>
-      <div class="precio">1 perfil $80 / Completa $249</div>
-      <a class="boton-wsp" href="#" data-plataforma="Disney+" data-opcion="1 perfil" data-precio="80">1 perfil</a>
-      <a class="boton-wsp" href="#" data-plataforma="Disney+" data-opcion="Cuenta completa" data-precio="249">Cuenta completa</a>
-    </div>
+    <!-- Netflix -->
+    <div class="plataforma">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix" />
+      <p>Netflix</p>
+      <div class="precio">$85 (completa $230)</div>
+      <div class="botones-container">
+        <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola,%20vengo%20de%20LunaStreaming%20y%20quiero%201%20perfil%20de%20Netflix" target="_blank">1 perfil</a>
+        <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola,%20vengo%20de%20LunaStreaming%20y%20quiero%20cuenta%20completa%20de%20Netflix" target="_blank">Cuenta completa</a>
+      </div>
+    </div>
 
-    <!-- Prime Video -->
-    <div class="plataforma">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Prime_Video.png" alt="Prime Video" />
-      <p>Prime Video</p>
-      <div class="precio">1 perfil $55 / Completa $90</div>
-      <a class="boton-wsp" href="#" data-plataforma="Prime Video" data-opcion="1 perfil" data-precio="55">1 perfil</a>
-      <a class="boton-wsp" href="#" data-plataforma="Prime Video" data-opcion="Cuenta completa" data-precio="90">Cuenta completa</a>
-    </div>
+    <!-- Disney -->
+    <div class="plataforma">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Disney%2B_logo.svg" alt="Disney" />
+      <p>Disney</p>
+      <div class="precio">$80 (completa $249)</div>
+      <div class="botones-container">
+        <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola,%20vengo%20de%20LunaStreaming%20y%20quiero%201%20perfil%20de%20Disney" target="_blank">1 perfil</a>
+        <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola,%20vengo%20de%20LunaStreaming%20y%20quiero%20cuenta%20completa%20de%20Disney" target="_blank">Cuenta completa</a>
+      </div>
+    </div>
 
-    <!-- Vix -->
-    <div class="plataforma">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Vix_logo.svg" alt="Vix" />
-      <p>Vix</p>
-      <div class="precio">1 perfil $45 / Completa $70</div>
-      <a class="boton-wsp" href="#" data-plataforma="Vix" data-opcion="1 perfil" data-precio="45">1 perfil</a>
-      <a class="boton-wsp" href="#" data-plataforma="Vix" data-opcion="Cuenta completa" data-precio="70">Cuenta completa</a>
-    </div>
+    <!-- Prime -->
+    <div class="plataforma">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Prime_Video.png" alt="Prime Video" />
+      <p>Prime</p>
+      <div class="precio">$55 (completa $90)</div>
+      <div class="botones-container">
+        <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola,%20vengo%20de%20LunaStreaming%20y%20quiero%201%20perfil%20de%20Prime" target="_blank">1 perfil</a>
+        <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola,%20vengo%20de%20LunaStreaming%20y%20quiero%20cuenta%20completa%20de%20Prime" target="_blank">Cuenta completa</a>
+      </div>
+    </div>
 
-    <!-- Max -->
-    <div class="plataforma">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/1/17/HBO_Max_Logo.svg" alt="Max" />
-      <p>Max</p>
-      <div class="precio">1 perfil $50 / Completa $85</div>
-      <a class="boton-wsp" href="#" data-plataforma="Max" data-opcion="1 perfil" data-precio="50">1 perfil</a>
-      <a class="boton-wsp" href="#" data-plataforma="Max" data-opcion="Cuenta completa" data-precio="85">Cuenta completa</a>
-    </div>
+    <!-- Vix -->
+    <div class="plataforma">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Vix_logo.svg" alt="Vix" />
+      <p>Vix</p>
+      <div class="precio">$45 (completa $70)</div>
+      <div class="botones-container">
+        <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola,%20vengo%20de%20LunaStreaming%20y%20quiero%201%20perfil%20de%20Vix" target="_blank">1 perfil</a>
+        <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola,%20vengo%20de%20LunaStreaming%20y%20quiero%20cuenta%20completa%20de%20Vix" target="_blank">Cuenta completa</a>
+      </div>
+    </div>
 
-    <!-- Crunchyroll -->
-    <div class="plataforma">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/2/20/Crunchyroll_Logo.svg" alt="Crunchyroll" />
-      <p>Crunchyroll</p>
-      <div class="precio">1 perfil $45 / Completa $85</div>
-      <a class="boton-wsp" href="#" data-plataforma="Crunchyroll" data-opcion="1 perfil" data-precio="45">1 perfil</a>
-      <a class="boton-wsp" href="#" data-plataforma="Crunchyroll" data-opcion="Cuenta completa" data-precio="85">Cuenta completa</a>
-    </div>
+    <!-- Max -->
+    <div class="plataforma">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/1/17/HBO_Max_Logo.svg" alt="Max" />
+      <p>Max</p>
+      <div class="precio">$50 (completa $85)</div>
+      <div class="botones-container">
+        <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola,%20vengo%20de%20LunaStreaming%20y%20quiero%201%20perfil%20de%20Max" target="_blank">1 perfil</a>
+        <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola,%20vengo%20de%20LunaStreaming%20y%20quiero%20cuenta%20completa%20de%20Max" target="_blank">Cuenta completa</a>
+      </div>
+    </div>
 
-    <!-- Paramount+ -->
-    <div class="plataforma">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Paramount%2B_Logo.svg" alt="Paramount+" />
-      <p>Paramount+</p>
-      <div class="precio">1 perfil $50 / Completa $85</div>
-      <a class="boton-wsp" href="#" data-plataforma="Paramount+" data-opcion="1 perfil" data-precio="50">1 perfil</a>
-      <a class="boton-wsp" href="#" data-plataforma="Paramount+" data-opcion="Cuenta completa" data-precio="85">Cuenta completa</a>
-    </div>
+    <!-- Crunchyroll -->
+    <div class="plataforma">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/2/20/Crunchyroll_Logo.svg" alt="Crunchyroll" />
+      <p>Crunchyroll</p>
+      <div class="precio">$45 (completa $85)</div>
+      <div class="botones-container">
+        <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola,%20vengo%20de%20LunaStreaming%20y%20quiero%201%20perfil%20de%20Crunchyroll" target="_blank">1 perfil</a>
+        <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola,%20vengo%20de%20LunaStreaming%20y%20quiero%20cuenta%20completa%20de%20Crunchyroll" target="_blank">Cuenta completa</a>
+      </div>
+    </div>
 
-    <!-- Canva -->
-    <div class="plataforma">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/3/30/Canva_Logo.svg" alt="Canva" />
-      <p>Canva</p>
-      <div class="precio">Mensual $50 / Anual $275</div>
-      <a class="boton-wsp" href="#" data-plataforma="Canva" data-opcion="Mensual" data-precio="50">Mensual</a>
-      <a class="boton-wsp" href="#" data-plataforma="Canva" data-opcion="Anual" data-precio="275">Anual</a>
-    </div>
+    <!-- Paramount -->
+    <div class="plataforma">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Paramount%2B_Logo.svg" alt="Paramount" />
+      <p>Paramount</p>
+      <div class="precio">$50 (completa $85)</div>
+      <div class="botones-container">
+        <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola,%20vengo%20de%20LunaStreaming%20y%20quiero%201%20perfil%20de%20Paramount" target="_blank">1 perfil</a>
+        <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola,%20vengo%20de%20LunaStreaming%20y%20quiero%20cuenta%20completa%20de%20Paramount" target="_blank">Cuenta completa</a>
+      </div>
+    </div>
 
-    <!-- Spotify -->
-    <div class="plataforma">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" alt="Spotify" />
-      <p>Spotify</p>
-      <div class="precio">$60 / 3 meses $140</div>
-      <a class="boton-wsp" href="#" data-plataforma="Spotify" data-opcion="1 mes" data-precio="60">1 mes</a>
-      <a class="boton-wsp" href="#" data-plataforma="Spotify" data-opcion="3 meses" data-precio="140">3 meses</a>
-    </div>
+    <!-- Canva -->
+    <div class="plataforma">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/3/30/Canva_Logo.svg" alt="Canva" />
+      <p>Canva</p>
+      <div class="precio">$50 mensual / $275 anual</div>
+      <div class="botones-container">
+        <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola,%20vengo%20de%20LunaStreaming%20y%20quiero%20Canva%20mensual" target="_blank">Mensual</a>
+        <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola,%20vengo%20de%20LunaStreaming%20y%20quiero%20Canva%20anual" target="_blank">Anual</a>
+      </div>
+    </div>
 
-    <!-- Pornhub -->
-    <div class="plataforma">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/9/9c/Pornhub_logo.svg" alt="Pornhub" />
-      <p>Pornhub completa</p>
-      <div class="precio">$72.05</div>
-      <a class="boton-wsp" href="#" data-plataforma="Pornhub" data-opcion="Completa" data-precio="72.05">Pedir</a>
-    </div>
+    <!-- Spotify -->
+    <div class="plataforma">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" alt="Spotify" />
+      <p>Spotify</p>
+      <div class="precio">$60 / 3 meses $140</div>
+      <div class="botones-container">
+        <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola,%20vengo%20de%20LunaStreaming%20y%20quiero%20Spotify%201%20mes" target="_blank">1 mes</a>
+        <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola,%20vengo%20de%20LunaStreaming%20y%20quiero%20Spotify%203%20meses" target="_blank">3 meses</a>
+      </div>
+    </div>
 
-    <!-- ElProfeNet -->
-    <div class="plataforma">
-      <div class="placeholder-logo">ElProfeNet</div>
-      <p>ElProfeNet</p>
-      <div class="precio">$74</div>
-      <a class="boton-wsp" href="#" data-plataforma="ElProfeNet" data-opcion="Completa" data-precio="74">Pedir</a>
-    </div>
+    <!-- Pornhub -->
+    <div class="plataforma">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/9/9c/Pornhub_logo.svg" alt="Pornhub" />
+      <p>Pornhub completa</p>
+      <div class="precio">$72.05</div>
+      <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola,%20vengo%20de%20LunaStreaming%20y%20quiero%20Pornhub%20completa" target="_blank">Pedir</a>
+    </div>
 
-    <!-- JellyFin -->
-    <div class="plataforma">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/5/5d/Jellyfin_Logo_2020.svg" alt="JellyFin" />
-      <p>JellyFin</p>
-      <div class="precio">1 perfil $65 / Completa $89</div>
-      <a class="boton-wsp" href="#" data-plataforma="JellyFin" data-opcion="1 perfil" data-precio="65">1 perfil</a>
-      <a class="boton-wsp" href="#" data-plataforma="JellyFin" data-opcion="Cuenta completa" data-precio="89">Cuenta completa</a>
-    </div>
+    <!-- ElProfeNet -->
+    <div class="plataforma">
+      <div class="placeholder-logo">ElProfeNet</div>
+      <p>ElProfeNet</p>
+      <div class="precio">$74</div>
+      <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola,%20vengo%20de%20LunaStreaming%20y%20quiero%20ElProfeNet" target="_blank">Pedir</a>
+    </div>
 
-    <!-- MeteGol -->
-    <div class="plataforma">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/2/23/MeteoGroup_logo.svg" alt="MeteGol" />
-      <p>MeteGol</p>
-      <div class="precio">$75</div>
-      <a class="boton-wsp" href="#" data-plataforma="MeteGol" data-opcion="Completa" data-precio="75">Pedir</a>
-    </div>
+    <!-- JellyFin -->
+    <div class="plataforma">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/5d/Jellyfin_Logo_2020.svg" alt="JellyFin" />
+      <p>JellyFin</p>
+      <div class="precio">$65 (completa $89)</div>
+      <div class="botones-container">
+        <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola,%20vengo%20de%20LunaStreaming%20y%20quiero%201%20perfil%20de%20JellyFin" target="_blank">1 perfil</a>
+        <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola,%20vengo%20de%20LunaStreaming%20y%20quiero%20cuenta%20completa%20de%20JellyFin" target="_blank">Cuenta completa</a>
+      </div>
+    </div>
 
-    <!-- Plex -->
-    <div class="plataforma">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Plex_logo.svg" alt="Plex" />
-      <p>Plex</p>
-      <div class="precio">1 perfil $63 / Completa $85</div>
-      <a class="boton-wsp" href="#" data-plataforma="Plex" data-opcion="1 perfil" data-precio="63">1 perfil</a>
-      <a class="boton-wsp" href="#" data-plataforma="Plex" data-opcion="Cuenta completa" data-precio="85">Cuenta completa</a>
-    </div>
+    <!-- MeteGol -->
+    <div class="plataforma">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/2/23/MeteoGroup_logo.svg" alt="MeteGol" />
+      <p>MeteGol</p>
+      <div class="precio">$75</div>
+      <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola,%20vengo%20de%20LunaStreaming%20y%20quiero%20MeteGol" target="_blank">Pedir</a>
+    </div>
 
-    <!-- YouTube Premium -->
-    <div class="plataforma">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg" alt="YouTube Premium" />
-      <p>YouTube Premium</p>
-      <div class="precio">$80 / 3 meses $130</div>
-      <a class="boton-wsp" href="#" data-plataforma="YouTube Premium" data-opcion="1 mes" data-precio="80">1 mes</a>
-      <a class="boton-wsp" href="#" data-plataforma="YouTube Premium" data-opcion="3 meses" data-precio="130">3 meses</a>
-    </div>
+    <!-- Plex -->
+    <div class="plataforma">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Plex_logo.svg" alt="Plex" />
+      <p>Plex</p>
+      <div class="precio">$63 (completa $85)</div>
+      <div class="botones-container">
+        <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola,%20vengo%20de%20LunaStreaming%20y%20quiero%201%20perfil%20de%20Plex" target="_blank">1 perfil</a>
+        <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola,%20vengo%20de%20LunaStreaming%20y%20quiero%20cuenta%20completa%20de%20Plex" target="_blank">Cuenta completa</a>
+      </div>
+    </div>
 
-    <!-- Office 365 -->
-    <div class="plataforma">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Microsoft_Office_2019_%28logo%29.svg" alt="Office 365" />
-      <p>Office 365</p>
-      <div class="precio">$290 anual (1 dispositivo)</div>
-      <a class="boton-wsp" href="#" data-plataforma="Office 365" data-opcion="Anual" data-precio="290">Anual</a>
-    </div>
+    <!-- Youtube -->
+    <div class="plataforma">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg" alt="YouTube" />
+      <p>YouTube</p>
+      <div class="precio">$80 (3 meses $130)</div>
+      <div class="botones-container">
+        <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola,%20vengo%20de%20LunaStreaming%20y%20quiero%20YouTube%201%20mes" target="_blank">1 mes</a>
+        <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola,%20vengo%20de%20LunaStreaming%20y%20quiero%20YouTube%203%20meses" target="_blank">3 meses</a>
+      </div>
+    </div>
 
-    <!-- Apple TV -->
-    <div class="plataforma">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/Apple_TV_logo.svg" alt="Apple TV" />
-      <p>Apple TV mensual</p>
-      <div class="precio">$80</div>
-      <a class="boton-wsp" href="#" data-plataforma="Apple TV" data-opcion="Mensual" data-precio="80">Mensual</a>
-    </div>
+    <!-- Office 365 -->
+    <div class="plataforma">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/3/37/Microsoft_Office_logo_%282019-present%29.svg" alt="Office 365" />
+      <p>Office 365 (1 dispositivo anual)</p>
+      <div class="precio">$290</div>
+      <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola,%20vengo%20de%20LunaStreaming%20y%20quiero%20Office%20365%201%20dispositivo%20anual" target="_blank">Pedir</a>
+    </div>
 
-    <!-- ChatGPT -->
-    <div class="plataforma">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/OpenAI_Logo.svg" alt="ChatGPT" />
-      <p>ChatGPT mensual</p>
-      <div class="precio">$145</div>
-      <a class="boton-wsp" href="#" data-plataforma="ChatGPT" data-opcion="Mensual" data-precio="145">Mensual</a>
-    </div>
+    <!-- Apple TV -->
+    <div class="plataforma">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple TV" />
+      <p>Apple TV mes</p>
+      <div class="precio">$80</div>
+      <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola,%20vengo%20de%20LunaStreaming%20y%20quiero%20Apple%20TV%20mes" target="_blank">Pedir</a>
+    </div>
 
-    <!-- Chaton -->
-    <div class="plataforma">
-      <div class="placeholder-logo">Chaton</div>
-      <p>Chaton mensual</p>
-      <div class="precio">$85</div>
-      <a class="boton-wsp" href="#" data-plataforma="Chaton" data-opcion="Mensual" data-precio="85">Mensual</a>
-    </div>
+    <!-- ChatGPT -->
+    <div class="plataforma">
+      <div class="placeholder-logo">ChatGPT</div>
+      <p>ChatGPT mes</p>
+      <div class="precio">$145</div>
+      <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola,%20vengo%20de%20LunaStreaming%20y%20quiero%20ChatGPT%20mes" target="_blank">Pedir</a>
+    </div>
 
-    <!-- Duolingo -->
-    <div class="plataforma">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Duolingo_logo.svg" alt="Duolingo" />
-      <p>Duolingo mensual</p>
-      <div class="precio">$65</div>
-      <a class="boton-wsp" href="#" data-plataforma="Duolingo" data-opcion="Mensual" data-precio="65">Mensual</a>
-    </div>
-  </div>
+    <!-- Chaton -->
+    <div class="plataforma">
+      <div class="placeholder-logo">Chaton</div>
+      <p>Chaton mes</p>
+      <div class="precio">$85</div>
+      <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola,%20vengo%20de%20LunaStreaming%20y%20quiero%20Chaton%20mes" target="_blank">Pedir</a>
+    </div>
 
-  <!-- Botón flotante de WhatsApp -->
-  <a href="https://wa.me/5216674103268" 
-      style="position:fixed;bottom:20px;right:20px;background:#25D366;color:white;border-radius:50%;padding:15px;text-align:center;font-size:24px;box-shadow:0 0 10px rgba(0,0,0,0.3);z-index:1000;"
-      target="_blank"
-      aria-label="Habla con nosotros por WhatsApp">
-    💬
-  </a>
+    <!-- Duolingo -->
+    <div class="plataforma">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Duolingo_logo.svg" alt="Duolingo" />
+      <p>Duolingo mes</p>
+      <div class="precio">$65</div>
+      <a class="boton-wsp" href="https://wa.me/5216674103268?text=Hola,%20vengo%20de%20LunaStreaming%20y%20quiero%20Duolingo%20mes" target="_blank">Pedir</a>
+    </div>
 
-  <script>
-    // Enviar datos del formulario por WhatsApp
-    document.getElementById('pedidoForm').addEventListener('submit', function(e) {
-      e.preventDefault();
+  </div>
 
-      const nombre = encodeURIComponent(document.getElementById('nombre').value.trim());
-      const telefonoCliente = encodeURIComponent(document.getElementById('telefono').value.trim());
+  <script>
+    // Captura el formulario y redirige a WhatsApp con el nombre y teléfono ingresados
+    document.getElementById('pedidoForm').addEventListener('submit', function(e) {
+      e.preventDefault();
 
-      if (!nombre || !telefonoCliente) {
-        alert('Por favor completa todos los campos correctamente.');
-        return;
-      }
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
 
-      // Como no hay selector de cuenta, pedimos que el usuario elija primero una opción de la plataforma
-      alert('Por favor, haz clic en el botón de la plataforma y tipo de cuenta que deseas para realizar el pedido.');
+      if (!nombre || !telefono.match(/^\d{10}$/)) {
+        alert('Por favor, ingresa un nombre válido y un teléfono de 10 dígitos.');
+        return;
+      }
 
-    });
-
-    // Añadir evento a cada botón de las plataformas
-    document.querySelectorAll('.boton-wsp').forEach(btn => {
-      btn.addEventListener('click', function(e) {
-        e.preventDefault();
-
-        const plataforma = this.getAttribute('data-plataforma');
-        const opcion = this.getAttribute('data-opcion');
-        const precio = this.getAttribute('data-precio');
-
-        const nombre = prompt('Por favor ingresa tu nombre completo:');
-        if (!nombre || nombre.trim() === '') {
-          alert('Debes ingresar tu nombre.');
-          return;
-        }
-
-        const telefono = prompt('Por favor ingresa tu número telefónico (10 dígitos sin espacios):');
-        if (!telefono || !/^\d{10}$/.test(telefono)) {
-          alert('Número de teléfono inválido.');
-          return;
-        }
-
-        const mensaje = `Hola, mi nombre es ${nombre.trim()}. Me interesa una ${opcion} de ${plataforma} por $${precio}. Mi número es ${telefono.trim()}.`;
-        const numeroWhatsApp = '5216674103268';
-        const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
-
-        window.open(url, '_blank');
-      });
-    });
-  </script>
+      const mensaje = encodeURIComponent(`Hola, soy ${nombre} y mi número es ${telefono}. Quisiera más información sobre los servicios de LunaStreaming.`);
+      const url = `https://wa.me/521${telefono}?text=${mensaje}`;
+      window.open(url, '_blank');
+    });
+  </script>
 </body>
 </html>
