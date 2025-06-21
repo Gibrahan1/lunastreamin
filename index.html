@@ -185,4 +185,36 @@ function crearCatalogo() {
 function enviarWhatsApp(event) {
   event.preventDefault();
 
-  const nombre = document.getElementById("nombr
+  const nombre = document.getElementById("nombre").value.trim();
+  const telefono = document.getElementById("telefono").value.trim();
+  const errorMensaje = document.getElementById("errorMensaje");
+
+  // Validación teléfono con código de país opcional + seguido de 8-15 dígitos
+  const telefonoValido = /^\+?\d{8,15}$/.test(telefono);
+
+  if (nombre === "" || telefono === "" || !telefonoValido) {
+    errorMensaje.style.display = "block";
+    return;
+  } else {
+    errorMensaje.style.display = "none";
+  }
+
+  const btn = event.currentTarget;
+  const plataforma = btn.dataset.plataforma;
+  const precio = btn.dataset.precio;
+  const tipo = btn.dataset.tipo;
+
+  let mensaje = `Hola, mi nombre es ${nombre} y mi teléfono es ${telefono}. Quiero comprar ${plataforma} (${tipo}) por $${precio}.`;
+
+  const numeroWhatsApp = "6674103268";
+  const urlMensaje = encodeURIComponent(mensaje);
+  const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${urlMensaje}`;
+
+  window.open(urlWhatsApp, "_blank");
+}
+
+window.onload = crearCatalogo;
+</script>
+
+</body>
+</html>
