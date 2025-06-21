@@ -3,161 +3,175 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>LunaStreaming - Venta de cuentas</title>
+  <title>LunaStreaming - Venta de Cuentas</title>
   <style>
     body {
-      background: #0a0a0a;
-      color: white;
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 20px;
+      margin: 0; padding: 20px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+      color: #fff;
     }
-    h1, h2 {
+    header {
       text-align: center;
+      margin-bottom: 30px;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      background: linear-gradient(90deg, #ff6a00, #ee0979);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin: 0;
+    }
+    header p {
+      font-size: 1.2rem;
+      margin-top: 6px;
+      color: #ffde59;
+    }
+    .formulario {
+      max-width: 600px;
+      margin: 0 auto 30px;
+      padding: 20px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 12px;
+      text-align: center;
+    }
+    .formulario h2 {
       margin-bottom: 10px;
     }
-    #formularioCliente {
-      max-width: 400px;
-      margin: 0 auto 20px auto;
-      background: #1c1c1c;
-      padding: 15px 20px;
-      border-radius: 10px;
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      justify-content: center;
+    .formulario p {
+      font-size: 0.95rem;
+      color: #f1f1f1;
+      margin-bottom: 15px;
     }
-    #formularioCliente input {
-      flex: 1 1 45%;
+    .formulario input {
       padding: 10px;
-      border-radius: 6px;
+      border-radius: 8px;
       border: none;
-      font-size: 14px;
-      color: #222;
+      width: 80%;
+      max-width: 300px;
+      margin-bottom: 10px;
     }
     .catalogo {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
       gap: 20px;
       max-width: 1000px;
-      margin: auto;
+      margin: 0 auto;
     }
-    .plataforma {
-      background: #1c1c1c;
-      border-radius: 15px;
-      padding: 15px;
-      text-align: center;
+    .producto {
+      background: rgba(255,255,255,0.15);
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
       display: flex;
       flex-direction: column;
-      align-items: center;
-      transition: transform 0.2s ease;
-    }
-    .plataforma:hover {
-      transform: scale(1.05);
-    }
-    .plataforma img {
-      max-width: 100%;
-      height: 90px;
-      object-fit: contain;
-      margin-bottom: 10px;
-    }
-    .precio {
-      color: #00ffcc;
-      font-weight: bold;
-      margin: 8px 0;
-    }
-    button {
-      background: #25D366;
-      border: none;
-      border-radius: 8px;
-      padding: 10px 15px;
-      width: 100%;
-      font-weight: bold;
-      font-size: 14px;
-      color: white;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-    button:hover {
-      background: #1ebd5a;
-    }
-    .custom-card {
-      display: none;
-      color: #ddd;
-      font-weight: bold;
-      font-size: 20px;
-      height: 90px;
-      width: 100%;
-      border-radius: 15px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      user-select: none;
-      padding: 0 10px;
+      justify-content: space-between;
+      transition: transform 0.3s ease;
       text-align: center;
     }
-    .custom-default {
-      background: linear-gradient(135deg, #2a2a2a, #3c3c3c);
+    .producto:hover {
+      transform: scale(1.05);
     }
-    @media (max-width: 480px) {
-      .catalogo {
-        padding: 0 10px;
-      }
-      #formularioCliente input {
-        flex: 1 1 100%;
-      }
+    .producto img {
+      max-width: 120px;
+      margin: 0 auto 15px auto;
+    }
+    .producto h2 {
+      margin: 0 0 10px;
+      font-size: 1.4rem;
+      color: #fff;
+    }
+    .producto p {
+      margin: 6px 0;
+      font-weight: 600;
+      font-size: 1rem;
+      color: #ffeb99;
+    }
+    .btn-comprar {
+      margin-top: 15px;
+      background: linear-gradient(90deg, #ff416c, #ff4b2b);
+      border: none;
+      border-radius: 10px;
+      color: white;
+      font-weight: 700;
+      font-size: 1.1rem;
+      padding: 12px;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      display: block;
+      transition: background 0.3s ease;
+    }
+    .btn-comprar:hover {
+      background: linear-gradient(90deg, #ff4b2b, #ff416c);
     }
   </style>
 </head>
 <body>
+
+<header>
   <h1>LunaStreaming</h1>
-  <h2>Catálogo de cuentas y pedidos</h2>
-  <div id="formularioCliente">
-    <input type="text" id="clienteNombre" placeholder="Tu nombre completo" />
-    <input type="tel" id="clienteTelefono" placeholder="Tu teléfono con lada" />
+  <p>Venta de cuentas streaming - Entrega inmediata por WhatsApp</p>
+</header>
+
+<div class="formulario">
+  <h2>Tus datos para el pedido</h2>
+  <p>Ingresa tu nombre y número para poder contactarte vía WhatsApp y registrar tu compra.</p>
+  <input type="text" id="nombreCliente" placeholder="Tu nombre"><br>
+  <input type="tel" id="telefonoCliente" placeholder="Tu número">
+</div>
+
+<div class="catalogo">
+  <div class="producto">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix" />
+    <h2>Netflix</h2>
+    <p><strong>Básico:</strong> $85 MXN</p>
+    <p><strong>Completo:</strong> $230 MXN</p>
+    <a class="btn-comprar" href="#" onclick="enviarPedido('Netflix', '85', '230')">Comprar por WhatsApp</a>
   </div>
-  <div class="catalogo">
-    <div class="plataforma"><div class="custom-card custom-default">Netflix</div><div class="precio">$85 (completa $230)</div><button onclick="abrirWhatsApp('Netflix $85 (completa $230)')">Pedir por WhatsApp</button></div>
-    <div class="plataforma"><div class="custom-card custom-default">Disney</div><div class="precio">$80 (completa $249)</div><button onclick="abrirWhatsApp('Disney $80 (completa $249)')">Pedir por WhatsApp</button></div>
-    <div class="plataforma"><div class="custom-card custom-default">Prime</div><div class="precio">$55 (completa $90)</div><button onclick="abrirWhatsApp('Prime $55 (completa $90)')">Pedir por WhatsApp</button></div>
-    <div class="plataforma"><div class="custom-card custom-default">Vix</div><div class="precio">$45 (completa $70)</div><button onclick="abrirWhatsApp('Vix $45 (completa $70)')">Pedir por WhatsApp</button></div>
-    <div class="plataforma"><div class="custom-card custom-default">Max</div><div class="precio">$50 (completa $85)</div><button onclick="abrirWhatsApp('Max $50 (completa $85)')">Pedir por WhatsApp</button></div>
-    <div class="plataforma"><div class="custom-card custom-default">Crunchyroll</div><div class="precio">$45 (completa $85)</div><button onclick="abrirWhatsApp('Crunchyroll $45 (completa $85)')">Pedir por WhatsApp</button></div>
-    <div class="plataforma"><div class="custom-card custom-default">Paramount</div><div class="precio">$50 (completa $85)</div><button onclick="abrirWhatsApp('Paramount $50 (completa $85)')">Pedir por WhatsApp</button></div>
-    <div class="plataforma"><div class="custom-card custom-default">Canva mes</div><div class="precio">$50 (anual $275)</div><button onclick="abrirWhatsApp('Canva mes $50 (anual $275)')">Pedir por WhatsApp</button></div>
-    <div class="plataforma"><div class="custom-card custom-default">Spotify</div><div class="precio">$60 (3 meses $140)</div><button onclick="abrirWhatsApp('Spotify $60 (3 meses $140)')">Pedir por WhatsApp</button></div>
-    <div class="plataforma"><div class="custom-card custom-default">Pornhub completa</div><div class="precio">$72.05</div><button onclick="abrirWhatsApp('Pornhub completa $72.05')">Pedir por WhatsApp</button></div>
-    <div class="plataforma"><div class="custom-card custom-default">ElProfeNet</div><div class="precio">$74</div><button onclick="abrirWhatsApp('ElProfeNet $74')">Pedir por WhatsApp</button></div>
-    <div class="plataforma"><div class="custom-card custom-default">JellyFin</div><div class="precio">$65 (completa $89)</div><button onclick="abrirWhatsApp('JellyFin $65 (completa $89)')">Pedir por WhatsApp</button></div>
-    <div class="plataforma"><div class="custom-card custom-default">MeteGol</div><div class="precio">$75</div><button onclick="abrirWhatsApp('MeteGol $75')">Pedir por WhatsApp</button></div>
-    <div class="plataforma"><div class="custom-card custom-default">Plex</div><div class="precio">$63 (completa $85)</div><button onclick="abrirWhatsApp('Plex $63 (completa $85)')">Pedir por WhatsApp</button></div>
-    <div class="plataforma"><div class="custom-card custom-default">YouTube</div><div class="precio">$80 (3 meses $130)</div><button onclick="abrirWhatsApp('YouTube $80 (3 meses $130)')">Pedir por WhatsApp</button></div>
-    <div class="plataforma"><div class="custom-card custom-default">Office 365</div><div class="precio">$290</div><button onclick="abrirWhatsApp('Office 365 1 dispositivo Anual $290')">Pedir por WhatsApp</button></div>
-    <div class="plataforma"><div class="custom-card custom-default">Apple TV</div><div class="precio">$80</div><button onclick="abrirWhatsApp('Apple TV mes $80')">Pedir por WhatsApp</button></div>
-    <div class="plataforma"><div class="custom-card custom-default">ChatGPT</div><div class="precio">$145</div><button onclick="abrirWhatsApp('ChatGPT mes $145')">Pedir por WhatsApp</button></div>
-    <div class="plataforma"><div class="custom-card custom-default">Chaton</div><div class="precio">$85</div><button onclick="abrirWhatsApp('Chaton mes $85')">Pedir por WhatsApp</button></div>
-    <div class="plataforma"><div class="custom-card custom-default">Duolingo</div><div class="precio">$65</div><button onclick="abrirWhatsApp('Duolingo mes $65')">Pedir por WhatsApp</button></div>
+  <div class="producto">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Disney%2B_logo.svg" alt="Disney+" />
+    <h2>Disney+</h2>
+    <p><strong>Básico:</strong> $80 MXN</p>
+    <p><strong>Completo:</strong> $249 MXN</p>
+    <a class="btn-comprar" href="#" onclick="enviarPedido('Disney+', '80', '249')">Comprar por WhatsApp</a>
   </div>
-  <script>
-    function abrirWhatsApp(plataforma) {
-      const nombre = document.getElementById("clienteNombre").value.trim();
-      const telefono = document.getElementById("clienteTelefono").value.trim();
-      if (!nombre) {
-        alert("Por favor, escribe tu nombre completo en el formulario.");
-        return;
-      }
-      if (!telefono) {
-        alert("Por favor, escribe tu teléfono con lada en el formulario.");
-        return;
-      }
-      const mensaje = encodeURIComponent(
-        `Hola, soy ${nombre}.
-Mi teléfono es ${telefono}.
-Quiero pedir: ${plataforma}.
-Gracias.`
-      );
-      window.open(`https://wa.me/526674103268?text=${mensaje}`, "_blank");
+  <div class="producto">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Prime_Video.png" alt="Prime Video" />
+    <h2>Prime Video</h2>
+    <p><strong>Básico:</strong> $55 MXN</p>
+    <p><strong>Completo:</strong> $90 MXN</p>
+    <a class="btn-comprar" href="#" onclick="enviarPedido('Prime Video', '55', '90')">Comprar por WhatsApp</a>
+  </div>
+  <div class="producto">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c9/Duolingo_logo.svg" alt="Duolingo" />
+    <h2>Duolingo</h2>
+    <p><strong>Mensual:</strong> $65 MXN</p>
+    <a class="btn-comprar" href="#" onclick="enviarPedido('Duolingo', '65')">Comprar por WhatsApp</a>
+  </div>
+</div>
+
+<script>
+  function enviarPedido(plataforma, precio, precioFull = '') {
+    const nombre = document.getElementById('nombreCliente').value.trim();
+    const telefono = document.getElementById('telefonoCliente').value.trim();
+
+    if (!nombre || !telefono) {
+      alert('Por favor ingresa tu nombre y número de teléfono antes de continuar.');
+      return;
     }
-  </script>
+
+    let mensaje = `Hola, vengo de LunaStreaming. Me interesa la plataforma ${plataforma}. Mi nombre es ${nombre} y mi número es ${telefono}.`;
+    if (precioFull) {
+      mensaje += ` Precio: $${precio} básico (completo $${precioFull})`;
+    } else {
+      mensaje += ` Precio: $${precio}`;
+    }
+
+    const url = `https://wa.me/526674103268?text=${encodeURIComponent(mensaje)}`;
+    window.open(url, '_blank');
+  }
+</script>
+
 </body>
 </html>
