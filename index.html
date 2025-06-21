@@ -1,173 +1,184 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LunaStreaming - Códigos Netflix</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LunaStreaming - Venta de Cuentas</title>
   <style>
     body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(180deg, #2c003e, #4b006e, #7300a5);
-      color: #ffffff;
-      padding: 20px;
+      margin: 0; padding: 20px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+      color: #fff;
     }
-
     header {
       text-align: center;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
     }
-
-    h1 {
-      font-size: 2.5em;
-      background: linear-gradient(to right, #ff9900, #ff0055);
+    header h1 {
+      font-size: 2.5rem;
+      background: linear-gradient(90deg, #ff6a00, #ee0979);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       margin: 0;
     }
-
-    h2 {
-      font-weight: normal;
-      font-size: 1.1em;
-      color: #ffccff;
-      margin-top: 5px;
+    header p {
+      font-size: 1.2rem;
+      margin-top: 6px;
+      color: #ffde59;
     }
-
-    .aviso {
-      background: rgba(255, 255, 255, 0.15);
-      border-left: 5px solid #ff0055;
-      padding: 15px;
-      border-radius: 10px;
-      font-size: 0.95em;
-      margin-bottom: 25px;
+    .catalogo {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: 0 auto;
     }
-
-    .cuenta {
-      background: rgba(255, 255, 255, 0.1);
+    .producto {
+      background: rgba(255,255,255,0.15);
       border-radius: 12px;
-      padding: 15px;
-      margin-bottom: 20px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-      transition: transform 0.3s;
-    }
-
-    .cuenta:hover {
-      transform: scale(1.02);
-    }
-
-    .oculto {
-      display: none;
-    }
-
-    button {
-      margin-top: 12px;
-      width: 100%;
-      background: linear-gradient(to right, #ff0055, #ff6600);
-      color: white;
-      border: none;
-      padding: 12px;
-      border-radius: 8px;
-      font-size: 1em;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background: linear-gradient(to right, #ff6600, #ff0055);
-    }
-
-    #formulario {
-      background: rgba(255, 255, 255, 0.08);
       padding: 20px;
-      border-radius: 10px;
-      margin-bottom: 25px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.3s ease;
+      text-align: center;
     }
-
-    input {
-      width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-      border-radius: 6px;
+    .producto:hover {
+      transform: scale(1.05);
+    }
+    .producto img {
+      max-width: 120px;
+      margin: 0 auto 15px auto;
+    }
+    .producto h2 {
+      margin: 0 0 10px;
+      font-size: 1.4rem;
+      color: #fff;
+    }
+    .producto p {
+      margin: 6px 0;
+      font-weight: 600;
+      font-size: 1rem;
+      color: #ffeb99;
+    }
+    .btn-comprar {
+      margin-top: 15px;
+      background: linear-gradient(90deg, #ff416c, #ff4b2b);
       border: none;
-      font-size: 1em;
+      border-radius: 10px;
+      color: white;
+      font-weight: 700;
+      font-size: 1.1rem;
+      padding: 12px;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      display: block;
+      transition: background 0.3s ease;
     }
-
-    @media (max-width: 600px) {
-      h1 { font-size: 2em; }
-      .cuenta { font-size: 1em; }
+    .btn-comprar:hover {
+      background: linear-gradient(90deg, #ff4b2b, #ff416c);
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>LunaStreaming</h1>
-    <h2>¡La onda del streaming!</h2>
-  </header>
+<header>
+  <h1>LunaStreaming</h1>
+  <p>Venta de cuentas streaming - Entrega inmediata por WhatsApp</p>
+</header>
 
-  <div class="aviso">
-    📌 <strong>¿Cómo funciona?</strong><br>
-    Aquí verás las cuentas disponibles para entrega inmediata.<br>
-    Cada cuenta puede marcarse como entregada y ocultarse.<br>
-    También puedes agregar nuevas cuentas abajo, sin recargar la página.
+<div class="catalogo">
+
+  <div class="producto">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix" />
+    <h2>Netflix</h2>
+    <p>Precio: $85 MXN</p>
+    <p>Completa: $230 MXN</p>
+    <a class="btn-comprar" href="https://wa.me/526674103268?text=Hola,%20quiero%20ordenar%20Netflix%20de%20LunaStreaming" target="_blank" rel="noopener noreferrer">Comprar por WhatsApp</a>
   </div>
 
-  <!-- FORMULARIO PARA AGREGAR CUENTAS -->
-  <div id="formulario">
-    <h3>Agregar nueva cuenta</h3>
-    <input type="text" id="nuevoCorreo" placeholder="Correo de Netflix">
-    <input type="text" id="nuevaClave" placeholder="Contraseña">
-    <button onclick="agregarCuenta()">Agregar cuenta</button>
+  <div class="producto">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Disney%2B_logo.svg" alt="Disney+" />
+    <h2>Disney+</h2>
+    <p>Precio: $80 MXN</p>
+    <p>Completa: $249 MXN</p>
+    <a class="btn-comprar" href="https://wa.me/526674103268?text=Hola,%20quiero%20ordenar%20Disney+%20de%20LunaStreaming" target="_blank" rel="noopener noreferrer">Comprar por WhatsApp</a>
   </div>
 
-  <!-- CONTENEDOR DE CUENTAS -->
-  <div id="cuentas">
-
-    <div class="cuenta" id="cuenta1">
-      <p><strong>Correo:</strong> netflixpro1@mail.com</p>
-      <p><strong>Contraseña:</strong> clave123</p>
-      <button onclick="entregarCuenta('cuenta1')">Marcar como entregada</button>
-    </div>
-
-    <div class="cuenta" id="cuenta2">
-      <p><strong>Correo:</strong> netflixvip2@mail.com</p>
-      <p><strong>Contraseña:</strong> acceso456</p>
-      <button onclick="entregarCuenta('cuenta2')">Marcar como entregada</button>
-    </div>
-
+  <div class="producto">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Prime_Video.png" alt="Prime Video" />
+    <h2>Prime Video</h2>
+    <p>Precio: $55 MXN</p>
+    <p>Completa: $90 MXN</p>
+    <a class="btn-comprar" href="https://wa.me/526674103268?text=Hola,%20quiero%20ordenar%20Prime%20Video%20de%20LunaStreaming" target="_blank" rel="noopener noreferrer">Comprar por WhatsApp</a>
   </div>
 
-  <script>
-    function entregarCuenta(id) {
-      const cuenta = document.getElementById(id);
-      cuenta.classList.add('oculto');
-    }
+  <div class="producto">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/9/9e/Vix_Logo.svg" alt="Vix" />
+    <h2>Vix</h2>
+    <p>Precio: $45 MXN</p>
+    <p>Completa: $70 MXN</p>
+    <a class="btn-comprar" href="https://wa.me/526674103268?text=Hola,%20quiero%20ordenar%20Vix%20de%20LunaStreaming" target="_blank" rel="noopener noreferrer">Comprar por WhatsApp</a>
+  </div>
 
-    function agregarCuenta() {
-      const correo = document.getElementById('nuevoCorreo').value.trim();
-      const clave = document.getElementById('nuevaClave').value.trim();
+  <div class="producto">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/HBO_Max_Logo.svg" alt="Max" />
+    <h2>Max</h2>
+    <p>Precio: $50 MXN</p>
+    <p>Completa: $85 MXN</p>
+    <a class="btn-comprar" href="https://wa.me/526674103268?text=Hola,%20quiero%20ordenar%20Max%20de%20LunaStreaming" target="_blank" rel="noopener noreferrer">Comprar por WhatsApp</a>
+  </div>
 
-      if (!correo || !clave) {
-        alert("Por favor completa ambos campos.");
-        return;
-      }
+  <div class="producto">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/2/20/Crunchyroll_Logo.svg" alt="Crunchyroll" />
+    <h2>Crunchyroll</h2>
+    <p>Precio: $45 MXN</p>
+    <p>Completa: $85 MXN</p>
+    <a class="btn-comprar" href="https://wa.me/526674103268?text=Hola,%20quiero%20ordenar%20Crunchyroll%20de%20LunaStreaming" target="_blank" rel="noopener noreferrer">Comprar por WhatsApp</a>
+  </div>
 
-      const id = 'cuenta' + Math.floor(Math.random() * 100000);
+  <div class="producto">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/7/77/Paramount_Global_Logo.svg" alt="Paramount" />
+    <h2>Paramount</h2>
+    <p>Precio: $50 MXN</p>
+    <p>Completa: $85 MXN</p>
+    <a class="btn-comprar" href="https://wa.me/526674103268?text=Hola,%20quiero%20ordenar%20Paramount%20de%20LunaStreaming" target="_blank" rel="noopener noreferrer">Comprar por WhatsApp</a>
+  </div>
 
-      const nueva = document.createElement('div');
-      nueva.className = 'cuenta';
-      nueva.id = id;
-      nueva.innerHTML = `
-        <p><strong>Correo:</strong> ${correo}</p>
-        <p><strong>Contraseña:</strong> ${clave}</p>
-        <button onclick="entregarCuenta('${id}')">Marcar como entregada</button>
-      `;
+  <div class="producto">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/8/8f/Canva_Logo.svg" alt="Canva" />
+    <h2>Canva Mes</h2>
+    <p>Precio: $50 MXN</p>
+    <p>Anual: $275 MXN</p>
+    <a class="btn-comprar" href="https://wa.me/526674103268?text=Hola,%20quiero%20ordenar%20Canva%20de%20LunaStreaming" target="_blank" rel="noopener noreferrer">Comprar por WhatsApp</a>
+  </div>
 
-      document.getElementById('cuentas').prepend(nueva);
+  <div class="producto">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" alt="Spotify" />
+    <h2>Spotify</h2>
+    <p>Precio: $60 MXN</p>
+    <p>3 meses: $140 MXN</p>
+    <a class="btn-comprar" href="https://wa.me/526674103268?text=Hola,%20quiero%20ordenar%20Spotify%20de%20LunaStreaming" target="_blank" rel="noopener noreferrer">Comprar por WhatsApp</a>
+  </div>
 
-      document.getElementById('nuevoCorreo').value = '';
-      document.getElementById('nuevaClave').value = '';
-    }
-  </script>
+  <div class="producto">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/OpenAI_Logo.svg" alt="ChatGPT" />
+    <h2>ChatGPT</h2>
+    <p>Mes: $145 MXN</p>
+    <a class="btn-comprar" href="https://wa.me/526674103268?text=Hola,%20quiero%20ordenar%20ChatGPT%20de%20LunaStreaming" target="_blank" rel="noopener noreferrer">Comprar por WhatsApp</a>
+  </div>
+
+  <div class="producto">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c9/Duolingo_logo.svg" alt="Duolingo" />
+    <h2>Duolingo</h2>
+    <p>Mes: $65 MXN</p>
+    <a class="btn-comprar" href="https://wa.me/526674103268?text=Hola,%20quiero%20ordenar%20Duolingo%20de%20LunaStreaming" target="_blank" rel="noopener noreferrer">Comprar por WhatsApp</a>
+  </div>
+
+</div>
 
 </body>
 </html>
