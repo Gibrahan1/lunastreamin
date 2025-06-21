@@ -1,20 +1,68 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LunaStreaming - Catálogo</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LunaStreaming - Venta de cuentas</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #111;
+      background: #0a0a0a;
       color: white;
+      font-family: Arial, sans-serif;
       margin: 0;
       padding: 20px;
     }
-    h1 {
+    h1, h2 {
       text-align: center;
-      margin-bottom: 30px;
+      margin-bottom: 10px;
+    }
+    form {
+      max-width: 400px;
+      margin: 0 auto 30px;
+      background: #1c1c1c;
+      padding: 15px 20px;
+      border-radius: 12px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      font-size: 14px;
+    }
+    input[type="text"], input[type="tel"] {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 15px;
+      border-radius: 6px;
+      border: none;
+      font-size: 14px;
+      background: #222;
+      color: white;
+    }
+    select {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 15px;
+      border-radius: 6px;
+      border: none;
+      font-size: 14px;
+      background: #333;
+      color: white;
+    }
+    button {
+      background: #25D366;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 0;
+      width: 100%;
+      font-weight: bold;
+      font-size: 16px;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background: #1ebd5a;
     }
     .catalogo {
       display: grid;
@@ -26,9 +74,8 @@
     .plataforma {
       background: #1c1c1c;
       border-radius: 15px;
-      overflow: hidden;
-      text-align: center;
       padding: 15px;
+      text-align: center;
       transition: transform 0.2s ease;
     }
     .plataforma:hover {
@@ -40,45 +87,205 @@
       object-fit: contain;
       margin-bottom: 10px;
     }
-    .plataforma.vix {
-      background: #ff5c00; /* Naranja ViX */
+    .plataforma .precio {
+      color: #00ffcc;
+      font-weight: bold;
+      margin-top: 8px;
+    }
+    /* Tarjetas personalizadas sin imagen con degradado oscuro */
+    .custom-card {
+      color: #ddd;
+      font-weight: bold;
+      font-size: 20px;
       display: flex;
       flex-direction: column;
       justify-content: center;
+      border-radius: 15px;
+      height: 120px;
+      padding: 10px;
+      text-align: center;
     }
-    .plataforma.vix span {
-      font-size: 24px;
-      font-weight: bold;
-      color: white;
+    .custom-vix {
+      background: linear-gradient(135deg, #2b2b2b, #3d3d3d);
+    }
+    .custom-elprofenet {
+      background: linear-gradient(135deg, #262626, #383838);
+    }
+    .custom-metegol {
+      background: linear-gradient(135deg, #2e2e2e, #424242);
+    }
+    .custom-chaton {
+      background: linear-gradient(135deg, #242424, #363636);
+    }
+    .custom-default {
+      background: linear-gradient(135deg, #2a2a2a, #3c3c3c);
+    }
+    @media (max-width: 480px) {
+      form, .catalogo {
+        width: 100%;
+        padding: 0 10px;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>Plataformas Disponibles</h1>
+  <h1>LunaStreaming</h1>
+  <h2>Haz tu pedido</h2>
+
+  <form id="pedidoForm">
+    <label for="clienteNombre">Nombre completo:</label>
+    <input type="text" id="clienteNombre" name="clienteNombre" placeholder="Tu nombre completo" required />
+
+    <label for="clienteTelefono">Número de teléfono:</label>
+    <input type="tel" id="clienteTelefono" name="clienteTelefono" placeholder="Tu número con lada" pattern="[0-9]{10,15}" required />
+
+    <label for="plataformaSelect">Selecciona la plataforma:</label>
+    <select id="plataformaSelect" name="plataformaSelect" required>
+      <option value="" disabled selected>-- Elige una opción --</option>
+      <option value="Netflix $85 (completa $230)">Netflix $85 (completa $230)</option>
+      <option value="Disney $80 (completa $249)">Disney $80 (completa $249)</option>
+      <option value="Prime $55 (completa $90)">Prime $55 (completa $90)</option>
+      <option value="ViX $45 (completa $70)">ViX $45 (completa $70)</option>
+      <option value="Max $50 (completa $85)">Max $50 (completa $85)</option>
+      <option value="Crunchyroll $45 (completa $85)">Crunchyroll $45 (completa $85)</option>
+      <option value="Paramount $50 (completa $85)">Paramount $50 (completa $85)</option>
+      <option value="Canva mes $50 (anual $275)">Canva mes $50 (anual $275)</option>
+      <option value="Spotify $60 (3 meses $140)">Spotify $60 (3 meses $140)</option>
+      <option value="Pornhub completa $72.05">Pornhub completa $72.05</option>
+      <option value="ElProfeNet $74">ElProfeNet $74</option>
+      <option value="JellyFin $65 (completa $89)">JellyFin $65 (completa $89)</option>
+      <option value="MeteGol $75">MeteGol $75</option>
+      <option value="Plex $63 (completa $85)">Plex $63 (completa $85)</option>
+      <option value="YouTube $80 (3 meses $130)">YouTube $80 (3 meses $130)</option>
+      <option value="Office 365 (1 dispositivo anual) $290">Office 365 (1 dispositivo anual) $290</option>
+      <option value="Apple TV mes $80">Apple TV mes $80</option>
+      <option value="ChatGPT mes $145">ChatGPT mes $145</option>
+      <option value="Chaton mes $85">Chaton mes $85</option>
+      <option value="Duolingo mes $65">Duolingo mes $65</option>
+    </select>
+
+    <button type="submit">Enviar pedido por WhatsApp</button>
+  </form>
+
   <div class="catalogo">
-    <!-- Plataforma con imagen -->
+    <!-- Plataformas con logo oficial -->
     <div class="plataforma">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix" />
       <div>Netflix</div>
+      <div class="precio">$85 (completa $230)</div>
     </div>
-
-    <!-- Plataforma con imagen -->
     <div class="plataforma">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Disney%2B_logo.svg" alt="Disney+">
-      <div>Disney+</div>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Disney%2B_logo.svg" alt="Disney+" />
+      <div>Disney</div>
+      <div class="precio">$80 (completa $249)</div>
     </div>
-
-    <!-- Plataforma SIN imagen - ViX -->
-    <div class="plataforma vix">
+    <div class="plataforma">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/5b/Amazon_Prime_Logo.svg" alt="Prime" />
+      <div>Prime</div>
+      <div class="precio">$55 (completa $90)</div>
+    </div>
+    <div class="plataforma vix custom-vix">
       <span>ViX</span>
-      <div>Streaming latino</div>
+      <div>$45 (completa $70)</div>
+    </div>
+    <div class="plataforma">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/HBO_Max_Logo.svg" alt="Max" />
+      <div>Max</div>
+      <div class="precio">$50 (completa $85)</div>
+    </div>
+    <div class="plataforma">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/5b/Crunchyroll_logo.svg" alt="Crunchyroll" />
+      <div>Crunchyroll</div>
+      <div class="precio">$45 (completa $85)</div>
+    </div>
+    <div class="plataforma">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Paramount_Pictures_Logo.svg" alt="Paramount" />
+      <div>Paramount</div>
+      <div class="precio">$50 (completa $85)</div>
+    </div>
+    <div class="plataforma">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Canva_icon_2021.svg" alt="Canva" />
+      <div>Canva mes</div>
+      <div class="precio">$50 (anual $275)</div>
+    </div>
+    <div class="plataforma">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" alt="Spotify" />
+      <div>Spotify</div>
+      <div class="precio">$60 (3 meses $140)</div>
+    </div>
+    <div class="plataforma">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/8/8e/Pornhub_logo.svg" alt="Pornhub" />
+      <div>Pornhub completa</div>
+      <div class="precio">$72.05</div>
     </div>
 
-    <!-- Otra sin imagen -->
-    <div class="plataforma vix" style="background:#0066cc;">
-      <span>Pluto TV</span>
-      <div>Gratis y sin registro</div>
+    <!-- Plataformas sin logo oficial, con tarjetas personalizadas -->
+    <div class="plataforma custom-elprofenet">
+      <div>ElProfeNet</div>
+      <div class="precio">$74</div>
+    </div>
+    <div class="plataforma">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/Jellyfin_Logo.svg" alt="JellyFin" />
+      <div>JellyFin</div>
+      <div class="precio">$65 (completa $89)</div>
+    </div>
+    <div class="plataforma custom-metegol">
+      <div>MeteGol</div>
+      <div class="precio">$75</div>
+    </div>
+    <div class="plataforma">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/49/Plex_logo.svg" alt="Plex" />
+      <div>Plex</div>
+      <div class="precio">$63 (completa $85)</div>
+    </div>
+    <div class="plataforma">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.svg" alt="YouTube" />
+      <div>YouTube</div>
+      <div class="precio">$80 (3 meses $130)</div>
+    </div>
+    <div class="plataforma">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/59/Office_365_logo.png" alt="Office 365" />
+      <div>Office 365 (1 dispositivo anual)</div>
+      <div class="precio">$290</div>
+    </div>
+    <div class="plataforma custom-default">
+      <div>Chaton</div>
+      <div class="precio">$85</div>
+    </div>
+    <div class="plataforma">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/f/f0/Apple_TV_logo.svg" alt="Apple TV" />
+      <div>Apple TV mes</div>
+      <div class="precio">$80</div>
+    </div>
+    <div class="plataforma">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg" alt="ChatGPT" />
+      <div>ChatGPT mes</div>
+      <div class="precio">$145</div>
+    </div>
+    <div class="plataforma custom-default">
+      <div>Duolingo mes</div>
+      <div class="precio">$65</div>
     </div>
   </div>
+
+  <script>
+    document.getElementById('pedidoForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const nombre = document.getElementById('clienteNombre').value.trim();
+      const telefono = document.getElementById('clienteTelefono').value.trim();
+      const plataforma = document.getElementById('plataformaSelect').value;
+
+      if(!nombre || !telefono || !plataforma){
+        alert('Por favor, completa todos los campos');
+        return;
+      }
+
+      const mensaje = encodeURIComponent(
+        `Hola, soy ${nombre}.\nMi teléfono es ${telefono}.\nQuiero pedir: ${plataforma}.\nGracias.`
+      );
+
+      window.open(`https://wa.me/526674103268?text=${mensaje}`, '_blank');
+    });
+  </script>
 </body>
 </html>
