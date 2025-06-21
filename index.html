@@ -2,24 +2,25 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>LunaStreaming - Cuentas Netflix</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LunaStreaming - Códigos Netflix</title>
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-      color: #ffffff;
       margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(180deg, #2c003e, #4b006e, #7300a5);
+      color: #ffffff;
       padding: 20px;
     }
 
     header {
       text-align: center;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
     }
 
     h1 {
-      font-size: 3em;
-      background: linear-gradient(to right, #ff416c, #ff4b2b);
+      font-size: 2.5em;
+      background: linear-gradient(to right, #ff9900, #ff0055);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       margin: 0;
@@ -27,44 +28,58 @@
 
     h2 {
       font-weight: normal;
-      font-size: 1.2em;
-      color: #f0f0f0;
-      margin-top: 10px;
+      font-size: 1.1em;
+      color: #ffccff;
+      margin-top: 5px;
+    }
+
+    .aviso {
+      background: rgba(255, 255, 255, 0.15);
+      border-left: 5px solid #ff0055;
+      padding: 15px;
+      border-radius: 10px;
+      font-size: 0.95em;
+      margin-bottom: 25px;
     }
 
     .cuenta {
-      background: rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.1);
       border-radius: 12px;
-      padding: 20px;
-      margin-bottom: 15px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-      transition: 0.3s;
+      padding: 15px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      transition: transform 0.3s;
     }
 
     .cuenta:hover {
-      transform: scale(1.01);
+      transform: scale(1.02);
     }
 
     .vendido {
-      background: rgba(255, 0, 0, 0.2);
+      background: rgba(255, 0, 0, 0.3);
       text-decoration: line-through;
-      opacity: 0.5;
+      opacity: 0.6;
     }
 
     button {
-      margin-top: 10px;
-      background: linear-gradient(to right, #ff416c, #ff4b2b);
+      margin-top: 12px;
+      width: 100%;
+      background: linear-gradient(to right, #ff0055, #ff6600);
       color: white;
       border: none;
-      padding: 10px 15px;
+      padding: 12px;
       border-radius: 8px;
+      font-size: 1em;
       cursor: pointer;
-      font-size: 14px;
-      transition: 0.3s;
     }
 
     button:hover {
-      background: linear-gradient(to right, #ff4b2b, #ff416c);
+      background: linear-gradient(to right, #ff6600, #ff0055);
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 2em; }
+      .cuenta { font-size: 1em; }
     }
   </style>
 </head>
@@ -75,22 +90,28 @@
     <h2>¡La onda del streaming!</h2>
   </header>
 
+  <div class="aviso">
+    📌 <strong>¿Cómo funciona?</strong><br>
+    Aquí verás las cuentas disponibles para entrega inmediata.<br>
+    Cada cuenta tiene un botón para marcar como entregada.<br>
+    Solo tú puedes ver esto, el cliente recibe su cuenta por WhatsApp o mensaje después de pagar.
+  </div>
+
   <div class="cuenta" id="cuenta1">
-    <p><strong>Correo:</strong> netflixuser1@mail.com</p>
-    <p><strong>Contraseña:</strong> pass1234</p>
-    <button onclick="marcarVendido('cuenta1')">Marcar como vendido</button>
+    <p><strong>Correo:</strong> netflixpro1@mail.com</p>
+    <p><strong>Contraseña:</strong> clave123</p>
+    <button onclick="marcarVendido('cuenta1')">Marcar como entregada</button>
   </div>
 
   <div class="cuenta" id="cuenta2">
-    <p><strong>Correo:</strong> netflixuser2@mail.com</p>
-    <p><strong>Contraseña:</strong> claveNetflix</p>
-    <button onclick="marcarVendido('cuenta2')">Marcar como vendido</button>
+    <p><strong>Correo:</strong> netflixvip2@mail.com</p>
+    <p><strong>Contraseña:</strong> acceso456</p>
+    <button onclick="marcarVendido('cuenta2')">Marcar como entregada</button>
   </div>
 
   <script>
     function marcarVendido(id) {
-      const cuenta = document.getElementById(id);
-      cuenta.classList.add('vendido');
+      document.getElementById(id).classList.add('vendido');
     }
   </script>
 
