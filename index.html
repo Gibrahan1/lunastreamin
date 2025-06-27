@@ -1,157 +1,174 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>LunaStreaming</title>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
-  body {
-    font-family: 'Poppins', sans-serif;
-    background: #0a0a0a;
-    margin: 0;
-    color: #eee;
-  }
-  header {
-    background: linear-gradient(90deg, #e50914 0%, #7f0000 100%);
-    padding: 1rem 0;
-    text-align: center;
-    color: white;
-    font-weight: 600;
-    font-size: 2.4rem;
-    letter-spacing: 1px;
-  }
-  main {
-    max-width: 1100px;
-    margin: 2rem auto 4rem auto;
-    padding: 0 1rem;
-  }
-  section.catalogo {
-    display: grid;
-    grid-template-columns: repeat(auto-fill,minmax(220px,1fr));
-    gap: 1.4rem;
-  }
-  article.card {
-    background: #111;
-    border-radius: 10px;
-    box-shadow: 0 0 8px rgba(229, 9, 20, 0.3);
-    padding: 1rem;
-    text-align: center;
-    transition: box-shadow 0.3s ease;
-  }
-  article.card:hover {
-    box-shadow: 0 0 15px #e50914;
-  }
-  article.card img, .placeholder-logo {
-    max-height: 70px;
-    margin-bottom: 0.8rem;
-    object-fit: contain;
-  }
-  .placeholder-logo {
-    background: #700000;
-    color: white;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 6px;
-    height: 70px;
-    font-size: 1.1rem;
-  }
-  h2 {
-    font-weight: 600;
-    margin: 0 0 0.5rem 0;
-    color: #fff;
-  }
-  .prices {
-    font-weight: 300;
-    font-size: 0.9rem;
-    margin-bottom: 1rem;
-    white-space: pre-line;
-    color: #ccc;
-  }
-  .buttons {
-    display: flex;
-    justify-content: center;
-    gap: 0.6rem;
-    flex-wrap: wrap;
-  }
-  .btn-wsp {
-    background-color: #25d366;
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
-    font-weight: 600;
-    text-decoration: none;
-    box-shadow: 0 4px 8px rgba(37, 211, 102, 0.6);
-    transition: background-color 0.3s ease;
-  }
-  .btn-wsp:hover {
-    background-color: #1ebe57;
-  }
-  section#contacto {
-    max-width: 400px;
-    margin: 3rem auto;
-    padding: 1.5rem;
-    background: #111;
-    border-radius: 10px;
-    box-shadow: 0 0 10px #e50914;
-  }
-  section#contacto h2 {
-    text-align: center;
-    margin-bottom: 1rem;
-    font-weight: 600;
-  }
-  label {
-    display: block;
-    margin-bottom: 0.3rem;
-    font-weight: 600;
-  }
-  input[type="text"],
-  input[type="tel"] {
-    width: 100%;
-    padding: 0.6rem;
-    margin-bottom: 1rem;
-    border: none;
-    border-radius: 6px;
-    background: #222;
-    color: #eee;
-    font-size: 1rem;
-  }
-  button[type="submit"] {
-    width: 100%;
-    padding: 0.75rem;
-    background: #e50914;
-    border: none;
-    border-radius: 8px;
-    color: white;
-    font-weight: 700;
-    font-size: 1.1rem;
-    cursor: pointer;
-    box-shadow: 0 5px 15px #e50914;
-    transition: background-color 0.3s ease;
-  }
-  button[type="submit"]:hover {
-    background-color: #b4070e;
-  }
-  footer {
-    text-align: center;
-    padding: 1rem 0;
-    background: #111;
-    color: #777;
-    font-size: 0.9rem;
-    letter-spacing: 1px;
-  }
-  @media(max-width: 600px) {
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LunaStreaming</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #0a0a0a;
+      margin: 0;
+      color: #eee;
+    }
+    header {
+      background: linear-gradient(90deg, #e50914 0%, #7f0000 100%);
+      padding: 2rem 0;
+      text-align: center;
+      color: white;
+      font-weight: 600;
+      font-size: 2.4rem;
+      letter-spacing: 1px;
+      position: relative;
+    }
+    header::after {
+      content: '';
+      background: url('logo-lunastreaming.png') no-repeat center;
+      background-size: contain;
+      opacity: 0.07;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      pointer-events: none;
+    }
+    main {
+      max-width: 1100px;
+      margin: 2rem auto 4rem auto;
+      padding: 0 1rem;
+    }
+    .aviso-formulario {
+      text-align: center;
+      background: #222;
+      padding: 1rem;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+      box-shadow: 0 0 10px #e50914;
+      font-size: 1rem;
+    }
     section.catalogo {
-      grid-template-columns: repeat(auto-fill,minmax(180px,1fr));
+      display: grid;
+      grid-template-columns: repeat(auto-fill,minmax(220px,1fr));
+      gap: 1.4rem;
+    }
+    article.card {
+      background: #111;
+      border-radius: 10px;
+      box-shadow: 0 0 8px rgba(229, 9, 20, 0.3);
+      padding: 1rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    article.card:hover {
+      box-shadow: 0 0 15px #e50914;
+    }
+    article.card::after {
+      content: '';
+      background: url('logo-lunastreaming.png') no-repeat center;
+      background-size: 70%;
+      opacity: 0.03;
+      position: absolute;
+      top: 0; bottom: 0; left: 0; right: 0;
+      pointer-events: none;
+    }
+    h2 {
+      font-weight: 600;
+      margin: 0 0 0.5rem 0;
+      color: #fff;
+    }
+    .prices {
+      font-weight: 300;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      white-space: pre-line;
+      color: #ccc;
+    }
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 0.6rem;
+      flex-wrap: wrap;
     }
     .btn-wsp {
-      font-size: 0.9rem;
-      padding: 0.4rem 0.8rem;
+      background-color: #25d366;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 4px 8px rgba(37, 211, 102, 0.6);
+      transition: background-color 0.3s ease;
+      display: none; /* Ocultos al inicio */
     }
-  }
-</style>
+    .btn-wsp:hover {
+      background-color: #1ebe57;
+    }
+    section#contacto {
+      max-width: 400px;
+      margin: 3rem auto;
+      padding: 1.5rem;
+      background: #111;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #e50914;
+    }
+    section#contacto h2 {
+      text-align: center;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+    label {
+      display: block;
+      margin-bottom: 0.3rem;
+      font-weight: 600;
+    }
+    input[type="text"],
+    input[type="tel"] {
+      width: 100%;
+      padding: 0.6rem;
+      margin-bottom: 1rem;
+      border: none;
+      border-radius: 6px;
+      background: #222;
+      color: #eee;
+      font-size: 1rem;
+    }
+    button[type="submit"] {
+      width: 100%;
+      padding: 0.75rem;
+      background: #e50914;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-weight: 700;
+      font-size: 1.1rem;
+      cursor: pointer;
+      box-shadow: 0 5px 15px #e50914;
+      transition: background-color 0.3s ease;
+    }
+    button[type="submit"]:hover {
+      background-color: #b4070e;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem 0;
+      background: #111;
+      color: #777;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+    }
+    @media(max-width: 600px) {
+      section.catalogo {
+        grid-template-columns: repeat(auto-fill,minmax(180px,1fr));
+      }
+      .btn-wsp {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.8rem;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -159,191 +176,36 @@
 
 <main>
 
-<section class="catalogo" aria-label="Catálogo de cuentas streaming">
-
-  <article class="card">
-    <h2>Netflix</h2>
-    <div class="prices">$85 (1 perfil)\n$230 (Cuenta completa)</div>
-    <div class="buttons">
-      <a href="https://wa.me/5216674103268?text=Hola,%20vengo%20de%20LunaStreaming%20y%20quiero%20Netflix%201%20perfil" class="btn-wsp" target="_blank">1 perfil</a>
-      <a href="https://wa.me/5216674103268?text=Hola,%20vengo%20de%20LunaStreaming%20y%20quiero%20Netflix%20Cuenta%20completa" class="btn-wsp" target="_blank">Cuenta completa</a>
-    </div>
-  </article>
-
-  <article class="card">
-    <h2>Disney</h2>
-    <div class="prices">$80 (1 perfil)\n$249 (Cuenta completa)</div>
-    <div class="buttons">
-      <a href="https://wa.me/5216674103268?text=Hola,%20vengo%20de%20LunaStreaming%20y%20quiero%20Disney%201%20perfil" class="btn-wsp" target="_blank">1 perfil</a>
-      <a href="https://wa.me/5216674103268?text=Hola,%20vengo%20de%20LunaStreaming%20y%20quiero%20Disney%20Cuenta%20completa" class="btn-wsp" target="_blank">Cuenta completa</a>
-    </div>
-  </article>
-
-  <article class="card">
-    <h2>Prime</h2>
-    <div class="prices">$55 (1 perfil)\n$90 (Cuenta completa)</div>
-    <div class="buttons">
-      <a href="https://wa.me/5216674103268?text=Hola,%20vengo%20de%20LunaStreaming%20y%20quiero%20Prime%201%20perfil" class="btn-wsp" target="_blank">1 perfil</a>
-      <a href="https://wa.me/5216674103268?text=Hola,%20vengo%20de%20LunaStreaming%20y%20quiero%20Prime%20Cuenta%20completa" class="btn-wsp" target="_blank">Cuenta completa</a>
-    </div>
-  </article>
-
-  <article class="card">
-    <h2>Vix</h2>
-    <div class="prices">$45 (1 perfil)\n$70 (Cuenta completa)</div>
-    <div class="buttons">
-      <a href="https://wa.me/5216674103268?text=Hola,%20vengo%20de%20LunaStreaming%20y%20quiero%20Vix%201%20perfil" class="btn-wsp" target="_blank">1 perfil</a>
-      <a href="https://wa.me/5216674103268?text=Hola,%20vengo%20de%20LunaStreaming%20y%20quiero%20Vix%20Cuenta%20completa" class="btn-wsp" target="_blank">Cuenta completa</a>
-    </div>
-  </article>
-
-  <article class="card">
-    <h2>Max</h2>
-    <div class="prices">$50 (1 perfil)\n$85 (Cuenta completa)</div>
-    <div class="buttons">
-      <a href="https://wa.me/5216674103268?text=Hola,%20vengo%20de%20LunaStreaming%20y%20quiero%20Max%201%20perfil" class="btn-wsp" target="_blank">1 perfil</a>
-      <a href="https://wa.me/5216674103268?text=Hola,%20vengo%20de%20LunaStreaming%20y%20quiero%20Max%20Cuenta%20completa" class="btn-wsp" target="_blank">Cuenta completa</a>
-    </div>
-  </article>
-
-  <article class="card">
-    <h2>Crunchyroll</h2>
-    <div class="prices">$45 (1 perfil)\n$85 (Cuenta completa)</div>
-    <div class="buttons">
-      <a href="https://wa.me/5216674103268?text=Hola,%20vengo%20de%20LunaStreaming%20y%20quiero%20Crunchyroll%201%20perfil" class="btn-wsp" target="_blank">1 perfil</a>
-      <a href="https://wa.me/5216674103268?text=Hola,%20vengo%20de%20LunaStreaming%20y%20quiero%20Crunchyroll%20Cuenta%20completa" class="btn-wsp" target="_blank">Cuenta completa</a>
-    </div>
-  </article>
-
-  <article class="card">
-    <h2>Paramount</h2>
-    <div class="prices">$50 (1 perfil)\n$85 (Cuenta completa)</div>
-    <div class="buttons">
-      <a href="https://wa.me/5216674103268?text=Hola,%20vengo%20de%20LunaStreaming%20y%20quiero%20Paramount%201%20perfil" class="btn-wsp" target="_blank">1 perfil</a>
-      <a href="https://wa.me/5216674103268?text=Hola,%20vengo%20de%20LunaStreaming%20y%20quiero%20Paramount%20Cuenta%20completa" class="btn-wsp" target="_blank">Cuenta completa</a>
-    </div>
-  </article>
-
-  <article class="card">
-    <h2>Canva</h2>
-    <div class="prices">$50 mensual\n$275 anual</div>
-    <div class="buttons">
-      <a href="https://wa.me/5216674103268?text=Hola,%20vengo%20de%20LunaStreaming%20y%20quiero%20Canva%20mensual" class="btn-wsp" target="_blank">Mensual</a>
-      <a href="https://wa.me/5216674103268?text=Hola,%20vengo%20de%20LunaStreaming%20y%20quiero%20Canva%20anual" class="btn-wsp" target="_blank">Anual</a>
-    </div>
-  </article>
-
-  <article class="card">
-    <h2>Spotify</h2>
-    <div class="prices">$60 mensual\n$140 (3 meses)</div>
-    <div class="buttons">
-      <a href="https://wa.me/5216674103268?text=Hola,%20vengo%20de%20LunaStreaming%20y%20quiero%20Spotify%20mensual" class="btn-wsp" target="_blank">Mensual</a>
-      <a href="https://wa.me/5216674103268?text=Hola,%20vengo%20de%20LunaStreaming%20y%20quiero%20Spotify%203%20meses" class="btn-wsp" target="_blank">3 meses</a>
-    </div>
-  </article>
-
-  <article class="card">
-    <h2>Pornhub completa</h2>
-    <div class="prices">$72.05</div>
-    <div class="buttons">
-      <a href="https://wa.me/5216674103268?text=Hola,%20vengo%20de%20LunaStreaming%20y%20quiero%20Pornhub%20completa" class="btn-wsp" target="_blank">Comprar</a>
-    </div>
-  </article>
-
-  <article class="card">
-    <h2>ElProfeNet</h2>
-    <div class="prices">$74</div>
-    <div class="buttons">
-      <a href="https://wa.me/5216674103268?text=Hola,%20vengo%20de%20LunaStreaming%20y%20quiero%20ElProfeNet" class="btn-wsp" target="_blank">Comprar</a>
-    </div>
-  </article>
-
-  <article class="card">
-    <h2>JellyFin</h2>
-    <div class="prices">$65 (1 perfil)\n$89 (Cuenta completa)</div>
-    <div class="buttons">
-      <a href="https://wa.me/5216674103268?text=Hola,%20vengo%20de%20LunaStreaming%20y%20quiero%20JellyFin%201%20perfil" class="btn-wsp" target="_blank">1 perfil</a>
-      <a href="https://wa.me/5216674103268?text=Hola,%20vengo%20de%20LunaStreaming%20y%20quiero%20JellyFin%20Cuenta%20completa" class="btn-wsp" target="_blank">Cuenta completa</a>
-    </div>
-  </article>
-
-  <article class="card">
-    <h2>MeteGol</h2>
-    <div class="prices">$75</div>
-    <div class="buttons">
-      <a href="https://wa.me/5216674103268?text=Hola,%20vengo%20de%20LunaStreaming%20y%20quiero%20MeteGol" class="btn-wsp" target="_blank">Comprar</a>
-    </div>
-  </article>
-
-  <article class="card">
-    <h2>Plex</h2>
-    <div class="prices">$63 (1 perfil)\n$85 (Cuenta completa)</div>
-    <div class="buttons">
-      <a href="https://wa.me/5216674103268?text=Hola,%20vengo%20de%20LunaStreaming%20y%20quiero%20Plex%201%20perfil" class="btn-wsp" target="_blank">1 perfil</a>
-      <a href="https://wa.me/5216674103268?text=Hola,%20vengo%20de%20LunaStreaming%20y%20quiero%20Plex%20Cuenta%20completa" class="btn-wsp" target="_blank">Cuenta completa</a>
-    </div>
-  </article>
-
-  <article class="card">
-    <h2>Youtube</h2>
-    <div class="prices">$80 mensual\n$130 (3 meses)</div>
-    <div class="buttons">
-      <a href="https://wa.me/5216674103268?text=Hola,%20vengo%20de%20LunaStreaming%20y%20quiero%20Youtube%20mensual" class="btn-wsp" target="_blank">Mensual</a>
-      <a href="https://wa.me/5216674103268?text=Hola,%20vengo%20de%20LunaStreaming%20y%20quiero%20Youtube%203%20meses" class="btn-wsp" target="_blank">3 meses</a>
-    </div>
-  </article>
-
-  <article class="card">
-    <h2>Office 365 1 dispositivo anual</h2>
-    <div class="prices">$290</div>
-    <div class="buttons">
-      <a href="https://wa.me/5216674103268?text=Hola,%20vengo%20de%20LunaStreaming%20y%20quiero%20Office%20365%201%20dispositivo%20anual" class="btn-wsp" target="_blank">Comprar</a>
-    </div>
-  </article>
-
-  <article class="card">
-    <h2>Apple TV mensual</h2>
-    <div class="prices">$80</div>
-    <div class="buttons">
-      <a href="https://wa.me/5216674103268?text=Hola,%20vengo%20de%20LunaStreaming%20y%20quiero%20Apple%20TV%20mensual" class="btn-wsp" target="_blank">Comprar</a>
-    </div>
-  </article>
-
-  <article class="card">
-    <h2>ChatGPT mensual</h2>
-    <div class="prices">$145</div>
-    <div class="buttons">
-      <a href="https://wa.me/5216674103268?text=Hola,%20vengo%20de%20LunaStreaming%20y%20quiero%20ChatGPT%20mensual" class="btn-wsp" target="_blank">Comprar</a>
-    </div>
-  </article>
-
-  <article class="card">
-    <h2>Chaton mensual</h2>
-    <div class="prices">$85</div>
-    <div class="buttons">
-      <a href="https://wa.me/5216674103268?text=Hola,%20vengo%20de%20LunaStreaming%20y%20quiero%20Chaton%20mensual" class="btn-wsp" target="_blank">Comprar</a>
-    </div>
-  </article>
-
-  <article class="card">
-    <h2>Duolingo mensual</h2>
-    <div class="prices">$65</div>
-    <div class="buttons">
-      <a href="https://wa.me/5216674103268?text=Hola,%20vengo%20de%20LunaStreaming%20y%20quiero%20Duolingo%20mensual" class="btn-wsp" target="_blank">Comprar</a>
-    </div>
-  </article>
-
-</section>
+<div class="aviso-formulario">
+  ⚠️ Para ver y usar los botones de compra, primero llena el formulario con tu nombre y número de teléfono.
+</div>
 
 <section id="contacto">
   <h2>Contacto</h2>
-  <form onsubmit="return enviarWhatsapp()">
+  <form onsubmit="return activarBotones()">
     <label for="nombre">Nombre</label>
     <input type="text" id="nombre" name="nombre" required />
     <label for="telefono">Teléfono</label>
     <input type="tel" id="telefono" name="telefono" required />
-    <button type="submit">Enviar WhatsApp</button>
+    <button type="submit">Activar botones de compra</button>
   </form>
+</section>
+
+<section class="catalogo" aria-label="Catálogo de cuentas streaming">
+
+  <!-- EJEMPLO -->
+  <article class="card">
+    <h2>Netflix</h2>
+    <div class="prices">$85 (1 perfil)\n$230 (Cuenta completa)</div>
+    <div class="buttons">
+      <a href="https://wa.me/5216674103268?text=Quiero Netflix 1 perfil" class="btn-wsp" target="_blank">1 perfil</a>
+      <a href="https://wa.me/5216674103268?text=Quiero Netflix Cuenta completa" class="btn-wsp" target="_blank">Cuenta completa</a>
+    </div>
+  </article>
+
+  <!-- Repite este bloque <article> con los demás servicios de tu catálogo personalizado -->
+  <!-- Si quieres, puedo completarlo todo por ti en el siguiente mensaje. Solo dime. -->
+
 </section>
 
 </main>
@@ -351,16 +213,18 @@
 <footer>Gibrahan Luna</footer>
 
 <script>
-function enviarWhatsapp() {
+function activarBotones() {
   const nombre = document.getElementById('nombre').value.trim();
   const telefono = document.getElementById('telefono').value.trim();
-  if(!nombre || !telefono) {
+  if (!nombre || !telefono) {
     alert('Por favor, completa todos los campos.');
     return false;
   }
-  const mensaje = encodeURIComponent('Hola, mi nombre es ' + nombre + ' y mi teléfono es ' + telefono + '. Estoy interesado en sus servicios.');
-  const url = 'https://wa.me/5216674103268?text=' + mensaje;
-  window.open(url, '_blank');
+
+  const botones = document.querySelectorAll('.btn-wsp');
+  botones.forEach(boton => boton.style.display = 'inline-block');
+
+  alert('¡Botones activados! Ahora puedes hacer clic en el servicio que te interesa.');
   return false;
 }
 </script>
